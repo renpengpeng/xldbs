@@ -13,25 +13,33 @@ require_once 'tplFun.php';
  *	@param enter 模型  默认admin
  *	@param file  可传入的文件名 不允许带入后缀
 */
-function getTplActin($enter='admin',$file=false){
+function getNowActionTpl($enter='admin',$file=false){
 	$controller 		=	strtolower(request()->controller());
 	$action 			=	strtolower(request()->action());
 	$ext 				=	Config::get('template.view_suffix');
 
 	switch ($enter) {
 		case 'admin':
-			# code...
+			$tplHeader 	=	Config::get('xld.admin_tpl');
+		break;
+
+		case 'index':
+			$tplHeader 	=	Config::get('xld.index_tpl');
+		break;
+
+		case 'tpl':
+			$plHeader 	=	Config::get('xld.selecttpl_tpl');
 		break;
 		
 		default:
-			# code...
-			break;
+			return false;
+		break;
 	}
 
 	if($file){
-		$path 			=	Config::get('xld.selecttpl_tpl').$controller.DS.$file.$ext;
+		$path 			=	$tplHeader.$controller.DS.$file.$ext;
 	}else{
-		$path 			=	Config::get('xld.selecttpl_tpl').$controller.DS.$action.'.'.$ext;
+		$path 			=	$tplHeader.$controller.DS.$action.'.'.$ext;
 	}
 	
 	return $path;
