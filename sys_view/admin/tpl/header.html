@@ -17,7 +17,12 @@
   <!-- vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <style type="text/css">
-    .layui-body{overflow-y: scroll;}
+      .layui-table th {
+        text-align: center;
+      }
+      .layui-table td {
+        text-align: center;
+      }
   </style>
 </head>
 <body class="layui-layout-body">
@@ -77,7 +82,7 @@
           </a>
           <dl class="layui-nav-child">
             <dd>
-              <a href="javascript:;">
+              <a href="{:url('admin/web/newweb')}">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;添加站点
               </a>
             </dd>

@@ -184,6 +184,13 @@ function Login($type=false,$username=false,$password=false){
 		}
 	}
 
+	// 如果是模板选择后台 如果不是管理员或者代理
+	if($type == 'tpl'){
+		if(!$find['is_agent'] || !$find['is_admin']){
+			return false;
+		}
+	}
+
 	// 判断用户状态
 	$userStatus =	$find['status'];
 	if(!$userStatus){
@@ -206,6 +213,11 @@ function Login($type=false,$username=false,$password=false){
 		case 'admin':
 			$sessionName 	=	'admin_data';
 		break;
+
+		case 'tpl':
+			$sessionName 	=	'tpl_data';
+		break;
+
 		default:
 			return false;
 		break;
@@ -229,6 +241,11 @@ function LoginOut($type){
 		case 'admin':
 			$sessionName 	=	'admin_data';
 		break;
+
+		case 'tpl':
+			$sessionName 	=	'tpl_data';
+		break;
+
 		default:
 			return false;
 		break;

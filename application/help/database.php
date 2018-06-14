@@ -10,8 +10,8 @@ id 	web_on 		new_web_on  	web_url 		admin_domain    tpl_show_domain	  	upload_pa
 #	bs_web_info 					#站点的基本信息  userid 	->	管理者ID   status ->	状态  0暂停  1正常     web_type 与 system_product_type 对应  
 id 	web_type    title 		keywords 		description 	logo_file 		icp 	   userid 	  	status  	stop_reason		adddate 	addtime	   begintime  opentime  endtime  
 
-# 	bs_web_domain 					#域名绑定储存  
-id 	web_id  	domain   		tpl_name 		module 	 		adddate   		  addtime
+# 	bs_web_domain 					#域名绑定储存  type 域名类型 可选 give ->  自带赠送  ordi  -> 	默认绑定/新增绑定  mobile ->	手机
+id 	type 	web_id  	domain   		tpl_name 		module 	 		adddate   		  addtime
 
 #	bs_index_tpl 					#站点设置   &首页模板  
 id 	web_id 		index_tpl 		last_modify 	last_modify_date	version

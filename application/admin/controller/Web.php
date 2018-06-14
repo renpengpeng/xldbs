@@ -24,11 +24,12 @@ class Web extends Base {
 	 *	添加新站点(视图) 
 	*/
 	public function newWeb(){
+
 		return view(getAdminNowActionTpl());
 	}
 
 	/**
-	 *	添加新站点(数据处理) 安全起见 只接受POST
+	 *	添加新站点(数据处理)  只接受POST
 	 *	
 	*/
 	public function newWeb_out(){
@@ -82,7 +83,5 @@ class Web extends Base {
 		return view(getAdminNowActionTpl());
 	}
 
-	/**
-	 *	
-	*/
+	
 }

@@ -1,0 +1,49 @@
+{include file="Tpl/header"}
+<style type="text/css">
+	.layui-input-inline {
+		min-width: 300px;
+	}
+</style>
+<admin-blockquote>添加站点</admin-blockquote>
+<form action="" method="post" class="layui-form layui-form-pane">
+	<!-- 域名 -->
+	<div class="layui-form-item">
+	    <label class="layui-form-label">域名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="domain" required lay-verify="required" placeholder="站点标题" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">*必填 不要加http[s]://</div>
+  	</div>
+	<!-- 标题 -->
+	<div class="layui-form-item">
+	    <label class="layui-form-label">标题</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="title" required lay-verify="required" placeholder="站点标题" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">*必填 规范输入标题</div>
+  	</div>
+  	<!-- 关键词 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">关键词</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="keywords" required lay-verify="required" placeholder="关键词" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">*必填 使用英文逗号分隔</div>
+  	</div>
+  	<!-- 描述 -->
+  	<div class="layui-form-item layui-form-text">
+	    <label class="layui-form-label">描述</label>
+	    <div class="layui-input-block">
+	      <textarea name="description" placeholder="站点描述" class="layui-textarea"></textarea>
+	    </div>
+  	</div>
+  	<!-- 选择模板 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">模板</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="tpl_name" required lay-verify="required" placeholder="点击选择模板" autocomplete="off" class="layui-input" readonly="" style="cursor: pointer;">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">*选择模板(电脑)</div>
+  	</div>
+</form>
+{include file="Tpl/footer"}
