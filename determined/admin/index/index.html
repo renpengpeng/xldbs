@@ -1,0 +1,250 @@
+{include file="Tpl/header"}
+<!-- 控制台 -->
+<admin-blockquote>
+	控制台
+</admin-blockquote>
+<div class="layui-row">
+    <div class="layui-col-md3 layui-col-sm12 layui-col-xs12">
+        <div class="panel panel-primary text-center no-boder bg-color-green green">
+            <div class="panel-left pull-left green">
+                <i class="fa fa-bar-chart fa-5x"></i>
+                
+            </div>
+            <div class="panel-right pull-right">
+				<h3 id="totalPV">{$totalPV}</h3>
+               <strong>总访问量(PV)</strong>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3 layui-col-sm12 layui-col-xs12">
+        <div class="panel panel-primary text-center no-boder bg-color-blue blue">
+              <div class="panel-left pull-left blue">
+                <i class="fa fa-edge fa-5x"></i>
+				</div>
+                
+            <div class="panel-right pull-right">
+			<h3 id="totalWEB">{$totalWEB} </h3>
+               <strong>个独立网站</strong>
+
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3 layui-col-sm12 layui-col-xs12">
+        <div class="panel panel-primary text-center no-boder bg-color-red red">
+            <div class="panel-left pull-left red">
+                <i class="fa fa-bullseye fa-5x"></i>
+               
+            </div>
+            <div class="panel-right pull-right">
+			 <h3 id="totalStyle">{$totalStyle} </h3>
+               <strong>套模板风格</strong>
+
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3 layui-col-sm12 layui-col-xs12">
+        <div class="panel panel-primary text-center no-boder bg-color-brown brown">
+            <div class="panel-left pull-left brown">
+                <i class="fa fa-users fa-5x"></i>
+                
+            </div>
+            <div class="panel-right pull-right">
+			<h3 id="totalAgent">{$totalAgent}</h3>
+             <strong>个信用代理</strong>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    #   最近6天统计图
+    ->  新增站点
+    ->  新增代理
+    ->  新增模板
+    ->  新增文章
+    ->  PV访问量
+    ->  蜘蛛访问量    
+-->
+
+
+
+
+<div id="last-six-static" style="width: 100%;height: 500px;"></div>
+<script type="text/javascript">
+    var dom = document.getElementById("last-six-static");
+    var myChart = echarts.init(dom);
+    var app = {};
+
+    option = null;
+    option = {
+        title: {
+            text: '过去一周统计图'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['新增站点','新增代理','新增模板','新增文章','PV访问量','蜘蛛访问量']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [{$lastDate}]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name:'新增站点',
+                type:'line',
+                stack: '总量',
+                data:[{$newWEB}]
+            },
+            {
+                name:'新增代理',
+                type:'line',
+                stack: '总量',
+                data:[{$newAgent}]
+            },
+            {
+                name:'新增模板',
+                type:'line',
+                stack: '总量',
+                data:[{$newTpl}]
+            },
+            {
+                name:'新增文章',
+                type:'line',
+                stack: '总量',
+                data:[{$newArt}]
+            },
+            {
+                name:'PV访问量',
+                type:'line',
+                stack: '总量',
+                data:[{$pvnum}]
+            },
+            {
+                name:'蜘蛛访问量',
+                type:'line',
+                stack: '总量',
+                data:[{$spidernum}]
+            }
+        ]
+    };
+    ;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+
+<!--  月度新增详情 包括文章等信息  -->
+<!--<div id="last-year-static" style="width: 100%;height: 500px;margin-top: 100px;"></div>-->
+<script type="text/javascript">
+//    var dom = document.getElementById("last-year-static");
+//     var myChart = echarts.init(dom);
+//     var app = {};
+//     option = null;
+//     var data = genData();
+
+//     option = {
+//         title : {
+//             text: '代理地区分布统计',
+//             subtext: '可能存在延时',
+//             x:'center'
+//         },
+//         tooltip : {
+//             trigger: 'item',
+//             formatter: "{a} <br/>{b} : {c} ({d}%)"
+//         },
+//         legend: {
+//             type: 'scroll',
+//             orient: 'vertical',
+//             right: 10,
+//             top: 20,
+//             bottom: 20,
+//             data: data.legendData,
+
+//             selected: data.selected
+//         },
+//         series : [
+//             {
+//                 name: '姓名',
+//                 type: 'pie',
+//                 radius : '55%',
+//                 center: ['40%', '50%'],
+//                 data: data.seriesData,
+//                 itemStyle: {
+//                     emphasis: {
+//                         shadowBlur: 10,
+//                         shadowOffsetX: 0,
+//                         shadowColor: 'rgba(0, 0, 0, 0.5)'
+//                     }
+//                 }
+//             }
+//         ]
+//     };
+
+// function genData(count) {
+//     var nameList = [
+//         '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '冯', '陈', '褚', '卫', '蒋', '沈', '韩', '杨', '朱', '秦', '尤', '许', '何', '吕', '施', '张', '孔', '曹', '严', '华', '金', '魏', '陶', '姜', '戚', '谢', '邹', '喻', '柏', '水', '窦', '章', '云', '苏', '潘', '葛', '奚', '范', '彭', '郎', '鲁', '韦', '昌', '马', '苗', '凤', '花', '方', '俞', '任', '袁', '柳', '酆', '鲍', '史', '唐', '费', '廉', '岑', '薛', '雷', '贺', '倪', '汤', '滕', '殷', '罗', '毕', '郝', '邬', '安', '常', '乐', '于', '时', '傅', '皮', '卞', '齐', '康', '伍', '余', '元', '卜', '顾', '孟', '平', '黄', '和', '穆', '萧', '尹', '姚', '邵', '湛', '汪', '祁', '毛', '禹', '狄', '米', '贝', '明', '臧', '计', '伏', '成', '戴', '谈', '宋', '茅', '庞', '熊', '纪', '舒', '屈', '项', '祝', '董', '梁', '杜', '阮', '蓝', '闵', '席', '季', '麻', '强', '贾', '路', '娄', '危'
+//     ];
+//     var legendData = [];
+//     var seriesData = [];
+//     var selected = {};
+//     for (var i = 0; i < 50; i++) {
+//         name = Math.random() > 0.65
+//             ? makeWord(4, 1) + '·' + makeWord(3, 0)
+//             : makeWord(2, 1);
+//         legendData.push(name);
+//         seriesData.push({
+//             name: name,
+//             value: Math.round(Math.random() * 100000)
+//         });
+//         selected[name] = i < 6;
+//     }
+
+//         console.log(seriesData);
+//     return {
+//         legendData: '{cityName}',
+//         seriesData: '{cityseries}',
+//         selected: selected
+//     };
+
+//     function makeWord(max, min) {
+//         var nameLen = Math.ceil(Math.random() * max + min);
+//         var name = [];
+//         for (var i = 0; i < nameLen; i++) {
+//             name.push(nameList[Math.round(Math.random() * nameList.length - 1)]);
+//         }
+//         return name.join('');
+//     }
+// }
+// ;
+// if (option && typeof option === "object") {
+//     myChart.setOption(option, true);
+// }
+</script>
+
+
+
+
+
+
+<!-- vue渲染开始 -->
+<script type="text/javascript"></script>
+
+{include file="Tpl/footer"}
