@@ -22,7 +22,7 @@ use think\Request;
 use think\Session;
 use think\Cookie;
 use think\Config;
-use think\helper\Time;
+use think\helper\Time; 
 
 /**
  *	adminLoad
