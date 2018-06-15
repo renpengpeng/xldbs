@@ -24,8 +24,8 @@ class Web extends Base {
 	 *	添加新站点(视图) 
 	*/
 	public function newWeb(){
-
-		return view(getAdminNowActionTpl());
+		// dump(getNowActionTpl());
+		return view(getNowActionTpl());
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Web extends Base {
 
 		$this->assign('listData',$result);
 
-		return view(getAdminNowActionTpl());
+		return view(getNowActionTpl());
 	}
 
 	

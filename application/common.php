@@ -1,4 +1,7 @@
 <?php
+use think\Config;
+use think\Session;
+
 // 引入web公共文件
 require_once 'webFun.php';
 

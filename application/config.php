@@ -137,7 +137,7 @@ return [
         // 标签库标签结束标记
         'taglib_end'   => '}',
         // view_base
-        'view_base'    =>   ROOT_PATH.'determined'.DS,
+        'view_base'    =>   ROOT_PATH.'sysview'.DS,
     ],
 
     // 视图输出字符串内容替换
