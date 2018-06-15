@@ -13,6 +13,6 @@ class Index extends Base {
 	}
 
 	public function index(){
-		return view(getSelectTplNowTpl());
+		return view(getNowActionTpl('tpl'));
 	}
 }
