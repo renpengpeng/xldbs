@@ -10,10 +10,10 @@ class Tpl extends Base {
 		adminLoad();
 	}
 	public function header(){
-		return getAdminNowActionTpl();
+		return getNowActionTpl();
 	}
 	public function footer(){
-		return view(getAdminNowActionTpl());
+		return view(getNowActionTpl());
 	}
 	
 }

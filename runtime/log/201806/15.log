@@ -2219,3 +2219,363 @@
 [ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
 [ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.007000s ]
 [ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.006000s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:56:51+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.085005s][吞吐率：11.76req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024002s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.013001s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:57:30+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.006000s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:57:31+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.094005s][吞吐率：10.64req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.014001s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:57:31+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.006001s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:57:32+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.063003s][吞吐率：15.87req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.007000s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:58:01+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.084004s][吞吐率：11.90req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.020001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.014001s ]
+---------------------------------------------------------------
+[ 2018-06-15T08:59:09+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.074004s][吞吐率：13.51req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.007001s ]
+---------------------------------------------------------------
+[ 2018-06-15T09:03:15+08:00 ] 127.0.0.1 GET /web/newweb
+[ info ] admin.bs.cc/web/newweb [运行时间：0.094005s][吞吐率：10.64req/s] [内存消耗：2,352.55kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudyk\PHPTutorial\WWW\BS\thinkphp\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'web',
+    2 => 'newweb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=k1btmp06vbamprir71407816e5; thinkphp_show_page_trace=0|1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.bs.cc/web/list',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 MicroMessenger/5.0.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'admin.bs.cc',
+)
+[ info ] [ PARAM ] array (
+  '/web/newweb' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => '',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Web->newWeb[ D:\phpstudyk\PHPTutorial\WWW\BS\application\admin\controller\Web.php ]
+[ info ] [ VIEW ] D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.022001s ] mysql:host=122.114.6.85;dbname=xldbs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bs_config` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `bs_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.013001s ]

@@ -5,7 +5,7 @@
 */
 
 #	bs_config 						#站点核心设置  &站点开关 	&创建站点开关	& 上传目录名	&上传最大大小
-id 	web_on 		new_web_on  	web_url 		admin_domain    tpl_show_domain	  	upload_path 	upload_size 	logo_path
+id 	web_on 		new_web_on  	web_url 		admin_domain    tpl_domain    tpl_show_domain	  	upload_path 	upload_size 	logo_path
 
 #	bs_web_info 					#站点的基本信息  userid 	->	管理者ID   status ->	状态  0暂停  1正常     web_type 与 system_product_type 对应  
 id 	web_type    title 		keywords 		description 	logo_file 		icp 	   userid 	  	status  	stop_reason		adddate 	addtime	   begintime  opentime  endtime  

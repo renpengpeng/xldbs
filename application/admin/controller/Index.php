@@ -125,6 +125,6 @@ class Index extends Base {
 			$this->assign('cityName',$cityName);
 			$this->assign('cityseries',$cityseries);
 
-		return view(getAdminNowActionTpl());
+		return view(getNowActionTpl());
 	}
 }
