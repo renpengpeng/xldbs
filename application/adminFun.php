@@ -42,34 +42,37 @@ function adminLoad(){
 function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 	switch ($type) {
 		case 'admin':
-			$data =	Session::has('admin_data');
-			$loca =	url('admin/login/index');
+			$data 		=	Session::has('admin_data');
+			$loca 		=	url('admin/login/index');
+			$index 		=	url('admin/index/index');
 		break;
 		
 		case 'tpl':
-			$data =	Session::has('tpl_data');
-			$loca =	url('template/login/index');
+			$data 		=	Session::has('tpl_data');
+			$loca 		=	url('template/login/index');
+			$index 		=	url('template/index/index');
 		break;
 
 		case 'agent':
-			$data =	Session::has('agent_data');
-			$loca = url('agent/login/index');
+			$data 		=	Session::has('agent_data');
+			$loca 		= 	url('agent/login/index');
+			$index 		=	url('agent/index/index');	
 		break;
 		
 		default:
 			return false;
 		break;
 	}
-	
+	   
 	if(!$data){
 		if($refresh){
-			header('location:'.$loca);
+			header('location:'.$index);
 		}else{
 			return false;
 		}
 	}else{
 		if($hasLoginRefresh){
-			header('location:'.$loca);
+			header('location:'.$index);
 		}else{
 			return true;
 		}
