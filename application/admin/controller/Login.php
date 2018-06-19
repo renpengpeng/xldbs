@@ -12,7 +12,9 @@ class Login extends Base {
 
 	public function _initialize(){
 		// 检测是否已经登录 
-		is_login(false,true);
+		is_login('admin',false,true);
+
+		// dump(Session::has('admin_data'));
 
 		$this->systemName 		=	Config::get('xld.system_name');
 		$this->systemVersion 	=	Config::get('xld.system_version');	
@@ -25,7 +27,7 @@ class Login extends Base {
 		$this->code 			=	loadCode();
 	}
 	public function index(){
-		return view(getAdminNowActionTpl());
+		return view(getNowActionTpl());
 	}
 	public function login(){
 		$username 	=	input('?post.username') ? htmlspecialchars(input('post.username')) : false;

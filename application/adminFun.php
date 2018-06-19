@@ -35,6 +35,7 @@ function adminLoad(){
 
 /**
  *	is_login
+ *	@param type  			admin->后台   tpl->模板选择   agent->代理后台
  *	@param refresh  		未登录是否跳转
  *	@param hasLoginRefresh 	已经登录是否跳转
 */
@@ -56,7 +57,7 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 		break;
 		
 		default:
-			# code...
+			return false;
 		break;
 	}
 	
