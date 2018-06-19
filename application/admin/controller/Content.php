@@ -41,5 +41,24 @@ class content extends Base {
      */
     public function article_add_oper(){
         $data   =   input('post.');
+        'cate'  =>  $data['cate'];
+        'web_id'  =>  $data['web_id'];
+        'title'  =>  $data['title'];
+        'keywords'  =>  $data['keywords'];
+        'description'  =>  $data['description'];
+        'titlepic'  =>  $data['titlepic'];
+        'alias'  =>  $data['alias'];
+        'tags'  =>  $data['tags'];
+        'content'  =>  $data['content'];
+        'userid'  =>  $data['userid'];
+        'version'  =>  $data['version'];
+        'view'  =>  $data['view'];
+        'adddate'  =>  $data['adddate'];
+        $result=Model('article')->save($data);
+        if($result==null){
+            echo "请填写完整";
+        }else{
+            echo "添加文章成功";
+        }
     }
 }
