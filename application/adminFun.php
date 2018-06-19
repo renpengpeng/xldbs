@@ -29,7 +29,7 @@ use think\helper\Time;
  *	后台自动加载项
 */
 function adminLoad(){
-	is_login(true,false);
+	is_login('admin',true,false);
 	// checkAuth();
 }
 
@@ -42,7 +42,7 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 	switch ($type) {
 		case 'admin':
 			$data =	Session::has('admin_data');
-			$loca =	url('admin/login/index')
+			$loca =	url('admin/login/index');
 		break;
 		
 		case 'tpl':
