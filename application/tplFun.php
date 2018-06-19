@@ -13,7 +13,7 @@ use think\Config;
  *	tplload  tpl引入自动加载
 */
 function tplLoad(){
-
+	is_login('tpl',true,false);
 }
 
 

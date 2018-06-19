@@ -47,11 +47,12 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 		
 		case 'tpl':
 			$data =	Session::has('tpl_data');
-			
+			$loca =	url('template/login/index');
 		break;
 
 		case 'agent':
 			$data =	Session::has('agent_data');
+			$loca = url('agent/login/index');
 		break;
 		
 		default:
@@ -61,13 +62,13 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 	
 	if(!$data){
 		if($refresh){
-			header('location:'.url('admin/login/index'));
+			header('location:'.$loca);
 		}else{
 			return false;
 		}
 	}else{
 		if($hasLoginRefresh){
-			header('location:'.url('admin/index/index'));
+			header('location:'.$loca);
 		}else{
 			return true;
 		}

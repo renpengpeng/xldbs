@@ -14,4 +14,11 @@ class Login extends Base {
 		
 	}
 
+	/**
+	 * 	首页（视图）
+	*/
+	public function index(){
+		
+	}
+
 }
