@@ -38,8 +38,27 @@ function adminLoad(){
  *	@param refresh  		未登录是否跳转
  *	@param hasLoginRefresh 	已经登录是否跳转
 */
-function is_login($refresh=false,$hasLoginRefresh=false){
-	$data =	Session::has('admin_data');
+function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
+	switch ($type) {
+		case 'admin':
+			$data =	Session::has('admin_data');
+			$loca =	url('admin/login/index')
+		break;
+		
+		case 'tpl':
+			$data =	Session::has('tpl_data');
+			
+		break;
+
+		case 'agent':
+			$data =	Session::has('agent_data');
+		break;
+		
+		default:
+			# code...
+		break;
+	}
+	
 	if(!$data){
 		if($refresh){
 			header('location:'.url('admin/login/index'));

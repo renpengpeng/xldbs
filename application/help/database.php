@@ -71,4 +71,4 @@ id 	alias 		name 			addtime
 areaid 			areaname 		parentid 		arrparentid 	 child 			arrchildid 	 listorder
 
 #	bs_keywords_rank
-id 	
+id 	web_id 		keywords 		baidu_rank 		haosou_rank 	sougou_rank 	google_rank	  last_update_time		addtime 	

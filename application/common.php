@@ -24,24 +24,6 @@ function getNowActionTpl($enter='admin',$file=false){
 
 	$syspath 			=	Config::get('xld.system_tpl_path');		
 
-	// switch ($enter) {
-	// 	case 'admin':
-	// 		$tplHeader 	=	Config::get('xld.admin_tpl');
-	// 	break;
-
-	// 	case 'index':
-	// 		$tplHeader 	=	Config::get('xld.index_tpl');
-	// 	break;
-
-	// 	case 'tpl':
-	// 		$tplHeader 	=	Config::get('xld.selecttpl_tpl');
-	// 	break;
-		
-	// 	default:
-	// 		return false;
-	// 	break;
-	// }
-
 	if($file){
 		$path 			=	$syspath.$module.DS.$controller.DS.$file.$ext;
 	}else{
