@@ -65,7 +65,7 @@ function noDomainUrl($url=null){
 	}
 
 	if(preg_match("/http:\/\/s{0,1}/i",$url)){
-		$url  		=	preg_replace("/http:\/\/s{0,1}/i",'',$url);
+		$url 		=	noHttpDomain($url);
 	}
 
 	// 检测最前斜杠

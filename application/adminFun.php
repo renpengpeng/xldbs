@@ -66,7 +66,7 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 	   
 	if(!$data){
 		if($refresh){
-			header('location:'.$index);
+			header('location:'.$loca);
 		}else{
 			return false;
 		}
