@@ -11,7 +11,8 @@ class Login extends Base {
 	 *	初始化
 	*/
 	public function _initialize(){
-		
+		$this->setting 	=	getConfig();
+		is_login('tpl',false,true);
 	}
 
 	/**
@@ -25,6 +26,15 @@ class Login extends Base {
 	 *	登录处理
 	*/
 	public function login(){
-		$username 	=	input();
+		$username 	=	input('?username') ? input('username') : false;
+		$password 	=	input('?password') ? input('password') : false;
+
+		$login 		=	Login('tpl',$username,$password);
+
+		if($login){
+			return $this->success('登录成功');
+		}else{
+			return $this->error('登录失败');
+		}
 	}
 }

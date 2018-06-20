@@ -7,6 +7,9 @@
 <meta http-equiv="Expires" content="0"> 
 <title>后台登录</title> 
 <link href="/static/template/login/css/login.css" type="text/css" rel="stylesheet"> 
+<script type="text/javascript" src="/static/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/layer/layer.js"></script>
+<script type="text/javascript" src="/static/common/js/common.js"></script>
 </head> 
 <body> 
 
@@ -14,7 +17,7 @@
     <div class="message">模板地址登录</div>
     <div id="darkbannerwrap"></div>
     
-    <form method="post" action="{:url('template/login/login')}">
+    <form method="post" action="{:url('template/login/login')}" onsubmit="return check(this);">
 		<input name="action" value="login" type="hidden">
 		<input name="username" placeholder="用户名" required="" type="text">
 		<hr class="hr15">
@@ -22,8 +25,27 @@
 		<hr class="hr15">
 		<input value="登录" style="width:100%;" type="submit">
 		<hr class="hr20">
-		<!-- 帮助 <a onClick="alert('请联系管理员')">忘记密码</a> -->
 	</form>
 </div>
+<script type="text/javascript">
+	function check(e){
+		var action 	=	$(e).attr('action');
+		var method 	=	$(e).attr('method');
+
+		var username  	=	$('input[name="username"]').val();
+		var password 	=	$('input[name="password"]').val();
+
+		$.ajax({
+			url:action,
+			type:method,
+			data:{username:username,password:password},
+			success:function(res){
+				alertMsg(res['code'],res['msg'],res['code']);
+			}
+		});
+
+		return false;
+	}
+</script>
 </body>
 </html>

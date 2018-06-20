@@ -210,8 +210,10 @@ function Login($type=false,$username=false,$password=false){
 
 	// 如果是模板选择后台 如果不是管理员或者代理
 	if($type == 'tpl'){
-		if(!$find['is_agent'] || !$find['is_admin']){
-			return false;
+		if(!$find['is_agent']){
+			if(!$find['is_admin']){
+				return false;
+			}
 		}
 	}
 

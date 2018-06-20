@@ -9,6 +9,7 @@ class Index extends Base {
 	private $setting;
 
 	public function _initialize(){
+		$this->setting 	=	getConfig();
 		tplLoad();
 	}
 
