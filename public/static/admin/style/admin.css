@@ -8,3 +8,11 @@ admin-blockquote {
 	font-size: 20px;
 	margin-bottom: 10px;
 }
+.cache-list li {
+	min-height: 50px;
+	line-height: 25px;
+}
+.form-box {
+	width: 100%;
+	text-align: center;
+}

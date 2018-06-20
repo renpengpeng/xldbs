@@ -397,3 +397,172 @@ function getSpaceCity($type='province',$partent=null){
 
 	return $result;
 }
+
+/**
+ *	获取文件夹的大小 包括子文件 / 文件夹
+ *	@param dir  传入的文件夹路径
+*/
+function getDirSize($dir){
+    $size  	= 	0;
+    $op  	= 	opendir($dir);
+    $re 	=	scandir($dir);
+    foreach ($re as $key => $value) {
+    	if($value != '.' && $value != '..'){
+    		if(is_dir($dir.DS.$value)){
+    			$size += getDirSize($dir.DS.$value);
+    		}else{
+    			$size += filesize($dir.DS.$value);
+    		}
+    	}
+    }
+    return $size;
+}
+
+/**
+ *	获取文件夹下的文件个数
+ *	@param dir 传入文件夹路径 
+*/
+function getfilecounts($dir){
+	$sl=0;
+    $arr = glob($dir);
+    foreach ($arr as $v)
+    {
+        if(is_file($v))
+        {
+            $sl++;
+        }
+        else
+        {
+            $sl+=getfilecounts($v."/*");
+        }
+    }
+    return $sl;
+}
+
+/**
+ *	删除某个文件夹
+ *	@param path
+*/
+function delDir($path) {
+	if(is_dir($path)){
+	   $p = scandir($path);
+	   foreach($p as $val){
+	    if($val !="." && $val !=".."){
+	     if(is_dir($path.$val)){
+	        deldir($path.$val.'/');
+	        @rmdir($path.$val.'/');
+	     }else{
+	        unlink($path.$val);
+	     }
+	    }
+	}
+  }
+}
+
+/**
+ *	单位换算
+ *	@param size  		传入的大小 默认字节(bit)  不存在的单位 返回0
+ *	@param sizeType 	传入的单位
+ *	@param getType 		要获取的单位
+*/
+function sizeConversion($size=1024,$sizeType='bytes',$getType='bit'){
+	$sizeType 		=	strtolower($sizeType);
+	$typeArr 		=	['bit','bytes','kb','mb','gb','tb'];
+	$result 		=	[];
+	if(!in_array($sizeType,$typeArr)){
+		return 0;
+	}
+
+	switch ($sizeType) {
+		case 'bit':
+			$result['bit'] 		=	$size;
+			$result['bytes'] 	=	$result['bit']/8;
+			$result['kb'] 		=	$result['bytes']/1024;
+			$result['mb'] 		=	$result['kb']/1024;
+			$result['gb'] 		=	$result['mb']/1024;
+			$result['tb'] 		=	$result['gb']/1024;
+		break;
+
+		case 'bytes':
+			$result['bit'] 		=	$size * 8;
+			$result['bytes'] 	=	$size;
+			$result['kb'] 		=	$result['bytes'] / 1024;
+			$result['mb'] 		=	$result['kb']/1024;
+			$result['gb'] 		=	$result['mb']/1024;
+			$result['tb'] 		=	$result['gb']/1024;
+		break;
+
+		case 'kb':
+			$result['bit'] 		=	$size * 1024 * 8;
+			$result['bytes'] 	=	$size * 1024;
+			$result['kb'] 		=	$size;
+			$result['mb'] 		=	$result['kb']/1024;
+			$result['gb'] 		=	$result['mb']/1024;
+			$result['tb'] 		=	$result['gb']/1024;
+		break;
+		
+		case 'mb':
+			$result['bit'] 		=	$size * 1024 * 1024 * 8;
+			$result['bytes'] 	=	$size * 1024 * 1024;
+			$result['kb'] 		=	$size * 1024;
+			$result['mb'] 		=	$size;
+			$result['gb'] 		=	$result['mb']/1024;
+			$result['tb'] 		=	$result['gb']/1024;
+		break;
+
+		case 'gb':
+			$result['bit'] 	=	$size * 1024 * 1024 * 1024 * 8;
+			$result['bytes'] 	=	$size * 1024 * 1024 * 1024;
+			$result['kb'] 	=	$size * 1024 * 1024;
+			$result['mb'] 	=	$size * 1024 ;
+			$result['gb'] 	=	$size;
+			$result['tb'] 	=	$result['gb']/1024;
+		break;
+		default:
+			return 0;
+		break;
+	}
+
+	foreach ($result as $key => $value) {
+		if(strripos($value,'.')){
+			$len 			=	strripos($value,'.');
+			$lenone 		=	$len + 3;
+			$result[$key]	=	substr($value,0,$lenone);
+		}
+	}
+
+	switch ($getType) {
+		case 'bit':
+			return $result['bit'];
+		break;
+
+		case 'bytes':
+			return $result['bytes'];
+		break;
+
+		case 'kb':
+			return $result['kb'];
+		break;
+
+		case 'mb':
+			return $result['mb'];
+		break;
+
+		case 'gb':
+			return $result['gb'];
+		break;
+		
+		default:
+			return 0;
+		break;
+	}
+}
+/**
+ * kb，mb，gb自动转换大小
+ * @param size 	传入的大小
+*/
+function automaticSize($size) { 
+	$units = array(' B', ' KB', ' MB', ' GB', ' TB'); 
+	for ($i = 0; $size >= 1024 && $i < 4; $i++) $size /= 1024; 
+	return round($size, 2).$units[$i]; 
+} 

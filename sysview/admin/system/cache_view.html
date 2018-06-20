@@ -1,0 +1,76 @@
+{include file="Tpl/header"}
+<admin-blockquote>缓存管理</admin-blockquote><br>
+ <table class="layui-table">
+    <colgroup>
+      <col width="150">
+      <col width="150">
+      <col width="200">
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="font-weight: bold;">缓存类型</th>
+        <th style="font-weight: bold;">文件个数</th>
+        <th style="font-weight: bold;">占用大小</th>
+      </tr> 
+    </thead>
+   	<tr>
+   		<td>模板缓存</td>
+   		<td>{$cacheTplCount}</td>
+   		<td>{$cacheTplSize}</td>
+   	</tr>
+	<tr>
+   		<td>数据缓存</td>
+   		<td>{$cacheDataCount}</td>
+   		<td>{$cacheDataSize}</td>
+   	</tr>
+   	<tr>
+   		<td>日志缓存</td>
+   		<td>{$cacheLogCount}</td>
+   		<td>{$cacheLogSize}</td>
+   	</tr>
+</table>
+<div class="form-box">
+	<form class="layui-form" action="{:url('admin/system/cache_clear')}" method="get">
+		<div class="layui-form-item" style="width: 350px;margin:0 auto;">
+		    <label class="layui-form-label">清除类型</label>
+		    <div class="layui-input-inline">
+		      <select name="clearType" lay-verify="required">
+		        <option value="all">全部缓存</option>
+		        <option value="tpl">模板缓存</option>
+		        <option value="data">数据缓存</option>
+		        <option value="log">日志缓存</option>
+		      </select>
+		    </div>
+	  	</div>
+	  	<div class="layui-form-item" style="width: 350px;margin:0 auto;margin-top: 10px;">
+		     <button class="layui-btn" lay-submit lay-filter="formDemo">立即清除</button>
+	    </div>
+	</form>
+</div>
+<script type="text/javascript">
+	layui.use('form', function(){
+	  var form = layui.form;
+	  
+	  //监听提交
+	  form.on('submit(formDemo)', function(data){
+	    var fie 		= 	data.field;
+	    var action 		=	data.form.action;
+	    var method 		=	data.form.method;
+	    var clearType 	=	fie.clearType;
+
+	    $.ajax({
+	    	url:action,
+	    	type:method,
+	    	data:{type:clearType},
+	    	success:function(res){
+	    		alertMsg(res['code'],res['msg'],res['code']);
+	    	}
+	    });
+
+	    
+	    return false;
+	  });
+	});
+</script>
+{include file="Tpl/footer"}

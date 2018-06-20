@@ -12,23 +12,25 @@ use think\helper\Time;
 
 class Index extends Base {
 	private $setting;
+	private $cacheTime;
 	public function _initialize(){
 		adminLoad();
-		$this->setting 	=	getConfig();
+		$this->setting 		=	getConfig();
+		$this->cacheTime 	=	$this->setting['cache_time'];	
 	}
 	public function index(){
 		//  -----------
 			# 总访问量PV
-			$totalPV 	=	Model('EnterData')->count();
+			$totalPV 	=	Model('EnterData')->cache($this->cacheTime)->count();
 
 			# 站点总数量数据
-			$totalWEB 	=	Model('WebInfo')->count();
+			$totalWEB 	=	Model('WebInfo')->cache($this->cacheTime)->count();
 
 			# 统计样式风格
-			$totalStyle =	Model('TplInfo')->count();
+			$totalStyle =	Model('TplInfo')->cache($this->cacheTime)->count();
 
 			# 统计代理数量
-			$totalAgent =	Model('User')->where('is_agent','1')->count();
+			$totalAgent =	Model('User')->where('is_agent','1')->cache($this->cacheTime)->count();
 
 			$this->assign('totalPV',$totalPV);
 			$this->assign('totalWEB',$totalWEB);
@@ -61,27 +63,27 @@ class Index extends Base {
 		   		$lastDate    .=	",'".date('m月d日',$lastDay[$i][0])."'";
 		   		
 		   		// 获取新增站点
-		   		$newWEBnum 	  =	Model('WebInfo')->where('addtime','between',$lastDay[$i])->count();
+		   		$newWEBnum 	  =	Model('WebInfo')->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$newWEB 	 .=	",".$newWEBnum;
 
 		   		// 获取新增代理
-		   		$newAgentnum  =	Model('User')->where('is_agent',1)->where('addtime','between',$lastDay[$i])->count();
+		   		$newAgentnum  =	Model('User')->where('is_agent',1)->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$newAgent 	 .=	','.$newAgentnum;
 
 		   		// 获取新增模板
-		   		$newTplnum 	  =	Model('TplInfo')->where('addtime','between',$lastDay[$i])->count();
+		   		$newTplnum 	  =	Model('TplInfo')->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$newTpl 	 .= ','.$newTplnum;
 
 		   		// 新增文章
-		   		$newArtnum    =	Model('Article')->where('addtime','between',$lastDay[$i])->count();
+		   		$newArtnum    =	Model('Article')->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$newArt 	  =	','.$newArtnum;
 
 		   		// PV量
-		   		$pvnums       = Model('EnterData')->where('addtime','between',$lastDay[$i])->count();
+		   		$pvnums       = Model('EnterData')->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$pvnum 		  =	','.$pvnums;
 
 		   		// 蜘蛛访问量
-		   		$spiders 	  =	Model('SpiderData')->where('addtime','between',$lastDay[$i])->count();
+		   		$spiders 	  =	Model('SpiderData')->where('addtime','between',$lastDay[$i])->cache($this->cacheTime)->count();
 		   		$spidernum 	  = ','.$spiders;
 
 		   	}

@@ -15,5 +15,3 @@ use think\Config;
 function tplLoad(){
 	is_login('tpl',true,false);
 }
-
-

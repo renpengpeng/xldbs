@@ -13,4 +13,8 @@ return [
 	'loginError' 			=>	'登录失败',
 
 	'noIsNumber'			=>	'不是一个数字',
+
+	'noneOper'				=>	'无任何操作',
+	'operSuccess' 			=>	'操作成功',
+	'operError'				=>	'操作失败'
  ];

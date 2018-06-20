@@ -21,6 +21,11 @@ return [
 
     // 定义static 的绝对路径
     'static_path'		=>	ROOT_PATH.'public'.DS.'static'.DS,
+
+    // 缓存的路径
+    'cache_path'        =>  ROOT_PATH.'runtime'.DS,
+
+
     
     // 定义密码加密字符串
     'password_str' 		=>	'5Ko!MKud~+',
