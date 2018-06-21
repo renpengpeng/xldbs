@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html";i:1529022686;s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\tpl\header.html";i:1528966530;s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\tpl\footer.html";i:1528849112;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\web\newweb.html";i:1529022686;s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\tpl\header.html";i:1529495397;s:61:"D:\phpstudyk\PHPTutorial\WWW\BS\sysview\admin\tpl\footer.html";i:1528849112;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
   <title>新领地站点后台系统</title>
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link href="/static/layui/css/modules/layer/default/layer.css" rel="stylesheet" type="text/css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="/static/common/css/style.css">
+  <link rel="stylesheet" href="/static/common/css/style.css">
   <link rel="stylesheet" href="/static/admin/style/admin.css">
   <link rel="stylesheet" href="/static/awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/static/admin/style/custom-styles.css">
@@ -34,7 +36,7 @@
     <ul class="layui-nav layui-layout-left">
       <!-- 控制台 -->
       <li class="layui-nav-item">
-        <a href="" title="控制台">
+        <a href="<?php echo url('admin/index/index'); ?>" title="控制台">
           <i class="fa fa-window-maximize" aria-hidden="true"></i>
         </a>
       </li>
@@ -69,14 +71,14 @@
           <dd><a href="">安全设置</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退出</a></li>
+      <li class="layui-nav-item"><a href="<?php echo url('admin/index/login_out'); ?>/type/admin">退出</a></li> 
     </ul>
   </div>
   
   <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test" id="web">
+      <ul class="layui-nav layui-nav-tree" lay-filter="test" id="web">
         <li class="layui-nav-item layui-nav-itemed">
           <a href="javascript:;">
             <i class="fa fa-edge" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;站点
@@ -100,7 +102,7 @@
           </dl>
         </li>
         <!-- 代理 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
             <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;代理
           </a>
@@ -146,7 +148,7 @@
           </dl>
         </li> -->
         <!-- 站点 统计 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
             <i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;统计
           </a>
@@ -169,13 +171,13 @@
           </dl>
         </li>
         <!-- 内容管理 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
             <i class="fa fa-clipboard" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;内容
           </a>
           <dl class="layui-nav-child">
             <dd>
-              <a href="javascript:;">
+              <a href="<?php echo url('admin/content/list'); ?>">
                 <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;文章管理
               </a>
             </dd>
@@ -192,7 +194,7 @@
           </dl>
         </li>
         <!-- 用户管理 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
            <i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;用户
           </a>
@@ -220,7 +222,7 @@
           </dl>
         </li>
         <!-- 样式 * 模板 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
             <i class="fa fa-bullseye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;风格
           </a>
@@ -231,20 +233,26 @@
               </a>
             </dd>
             <dd>
-              <a href="javascript:;">
+              <a href="<?php echo url('admin/template/index'); ?>">
                 <i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;模板管理
+              </a>
+            </dd>
+
+            <dd>
+              <a href="javascript:;">
+                <i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;模板分类
               </a>
             </dd>
           </dl>
         </li>
         <!-- 系统 -->
-        <li class="layui-nav-item" id="proxy">
+        <li class="layui-nav-item layui-nav-itemed" id="proxy">
           <a href="javascript:;">
             <i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;系统
           </a>
           <dl class="layui-nav-child">
             <dd>
-              <a href="javascript:;">
+              <a href="<?php echo url('admin/system/cache_view'); ?>">
                 <i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;清除缓存
               </a>
             </dd>

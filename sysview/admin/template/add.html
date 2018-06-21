@@ -1,0 +1,27 @@
+{include file="Tpl/header"}
+<admin-blockquote>模板上传</admin-blockquote>
+<form action="" method="post"  enctype="multipart/form-data">
+
+<button type="button" class="layui-btn" id="test1">
+  <i class="layui-icon">&#xe67c;</i>上传模板
+</button>
+<input type="submit" value="上传" class="layui-btn">
+</form>
+{include file="Tpl/footer"}
+<script>
+layui.use('upload', function(){
+  var upload = layui.upload;
+
+  //执行实例
+  var uploadInst = upload.render({
+    elem: '#test1' //绑定元素
+    ,url: '/upload/' //上传接口
+    ,done: function(res){
+      //上传完毕回调
+    }
+    ,error: function(){
+      //请求异常回调
+    }
+  });
+});
+</script>

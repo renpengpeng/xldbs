@@ -25,4 +25,11 @@ class Template extends Base {
 	public function list(){
 		return view(getNowActionTpl('admin'));
 	}
+
+	/**
+	 *	添加模板
+	*/
+	public function add(){
+		return view(getNowActionTpl('admin'));
+	}
 }
