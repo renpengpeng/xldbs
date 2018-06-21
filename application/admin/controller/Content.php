@@ -4,61 +4,84 @@ namespace app\admin\controller;
 use app\common\controller\Base;
 use think\Session;
 use think\Config;
-use \think\File;
+use think\Request;
 
-class content extends Base {
+
+class Content extends Base {
 	private $setting;
+    private $code;
+    private $articleTable;
+    private $articleModel;
 
 	public function _initialize(){
 		adminLoad();
-		$this->setting 	=	getConfig();
+		$this->setting 	        =	getConfig();
+        $this->code             =   loadCode();
+        $this->articleModel     =   Model('Article');
+        $this->articleTable     =   $this->articleModel->getTableFields();
 	}
 
 	/**
  	 *	文章管理 重新定义到列表页面
 	*/
-	public function article(){
+	public function index(){
 		$this->redirect(url('list'));
 	}
 	/**
 	 *	列表页面
 	*/
-    public function article_list(){
-    	$result    =   Model("article")->select();
-
+    public function list(){
+    	$result    =    $this->articleModel->select();
     	$this->assign("list",$result);
     	return view(getNowActionTpl());
     }
-	/**
-	 *	文章添加页面
-	*/
+    
+    /**
+     * 添加页面显示
+     */
     public function article_add(){
-        $data   =   input('post.');
-    	return view(getNowActionTpl());
+        $web_result     =    Model("webInfo")->select();
+        $cate_result    =    Model("artCate")->select();
+        $id             =    input('?id') ? intval(input('id')) : false;
+        if(!$id){
+            foreach ($this->articleTable as $key => $value) {
+                $message[$value]    =   '';
+            }
+        }else{
+            $message    =   $this->articleModel->get($id);
+        }
+
+        $this->assign('message',$message);
+        $this->assign('catelist',$cate_result);
+        $this->assign("weblist",$web_result);
+        return view(getNowActionTpl());
     }
     /**
-     * 添加页面处理方法
+     * 文章 / 编辑添加文章处理方法
      */
     public function article_add_oper(){
-        $data   =   input('post.');
-        'cate'  =>  $data['cate'];
-        'web_id'  =>  $data['web_id'];
-        'title'  =>  $data['title'];
-        'keywords'  =>  $data['keywords'];
-        'description'  =>  $data['description'];
-        'titlepic'  =>  $data['titlepic'];
-        'alias'  =>  $data['alias'];
-        'tags'  =>  $data['tags'];
-        'content'  =>  $data['content'];
-        'userid'  =>  $data['userid'];
-        'version'  =>  $data['version'];
-        'view'  =>  $data['view'];
-        'adddate'  =>  $data['adddate'];
-        $result=Model('article')->save($data);
-        if($result==null){
-            echo "请填写完整";
+        $data           =   input('post.');
+        $data           =   safeArray($data);
+        $id             =   isset($data['id']) ? intval($data['id']) : false;
+        if($id){
+            $result     =   $this->articleModel->insert($data);    
         }else{
-            echo "添加文章成功";
+            $result     =   $this->articleModel->where('id',$id)->update($data);
+        }
+        if(!$result){
+                    return $this->success($this->code['newArticleSuccess']);
+        }else{
+                    return $this->error($this->code['editArticleError']);
+        }
+    }
+    public function article_del(){
+        $data           =   input("post.");
+        $id             =   isset($data['id']) ? intval($data['id']) : false;
+        $result=$this->articleModel->where('id',$id)->delete();
+        if($result){
+                   return $this->success($this->code['delArticleSuccess']);
+        }else{
+                   return $this->success($this->code['delArticleError']);
         }
     }
 }

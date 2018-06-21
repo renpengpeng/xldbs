@@ -14,7 +14,7 @@ class Upload extends Base {
 		$this->setting 	=	getConfig();
 		$this->setting 	=	loadCode();
 	}
-
+ 
 	/**
 	 *	模板上传
 	*/

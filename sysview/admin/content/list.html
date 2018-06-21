@@ -20,15 +20,16 @@
     		<td>{$v.keywords}</td>
     		<td>{$v.description}</td>
     		<td>{$v.titlepic}</td>
-    		<td>{$v.addtime}</td>
+    		<td>{$v.adddate}</td>
     		<td>
     			<div class="layui-btn-group">
-				  <button class="layui-btn layui-btn-sm" title="编辑">
+                    <a href="{:url('article_add')}?id={$v.id}" class="layui-btn layui-btn-sm" title="编辑">
+				  
 				    <i class="layui-icon">&#xe642;</i>
-				  </button>
-				  <button class="layui-btn layui-btn-sm" title="删除">
+				  </a>
+                  <a href="{:url('article_del')}?id={$v.id}" class="layui-btn layui-btn-sm" title="删除">
 				    <i class="layui-icon">&#xe640;</i>
-				  </button>
+				  </a>
 				  <button class="layui-btn layui-btn-sm" title="切换后台">
 				    <i class="layui-icon">&#xe602;</i>
 				  </button>
