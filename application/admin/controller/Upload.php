@@ -13,7 +13,7 @@ class Upload extends Base {
 	public function _initialize(){
 		$this->setting 			=	getConfig();
 		$this->setting 			=	loadCode();
-		$this->uplInfoModel 	=	Model('tplInfo');
+		$this->tplInfoModel 	=	Model('tplInfo');
 	}
  
 	/**
@@ -21,7 +21,9 @@ class Upload extends Base {
 	*/
 	public function tpl_upload(){
 		// 获取模板的最后一个ID
-		$getLastId 			=	
+		$getLastId 			=	getTableLastID($this->tplInfoModel,'id');
+
+		dump($getLastId);die;
 		// 获取上传后的文件夹
 		$uploadPath 		=	Config::get('xld.all_upload_tpl');
 
