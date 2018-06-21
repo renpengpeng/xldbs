@@ -26,21 +26,28 @@ return [
 
 	'delArticleSuccess'		=>	'删除文章成功',
 	'delArticleError'		=>	'删除文章失败',
-<<<<<<< HEAD
+
      
-    "newArticleSuccess" 	=>	'添加页面成功',
-	'newArticleError'		=>	'添加页面失败',
+    "newPageSuccess" 		=>	'添加页面成功',
+	'newPageError'			=>	'添加页面失败',
 
-	'editArticleSuccess'	=>	'修改文章成功',
-	'editArticleError'		=>	'修改文章失败',
+	'editPageSuccess'		=>	'修改页面成功',
+	'editPageError'			=>	'修改页面失败',
 
-	'delArticleSuccess'		=>	'删除文章成功',
-	'delArticleError'		=>	'删除文章失败',
-=======
+	'delPageSuccess'		=>	'删除页面成功',
+	'delPageError'			=>	'删除页面失败',
+
+	"newSeniorPageSuccess" 	=>	'添加自定义页面成功',
+	'newSeniorPageError'	=>	'添加自定义页面失败',
+
+	'editSeniorPageSuccess'	=>	'修改自定义页面成功',
+	'editSeniorPageError'	=>	'修改自定义页面失败',
+
+	'delSeniorPageSuccess'	=>	'删除自定义页面成功',
+	'delSeniorPageError'	=>	'删除自定义页面失败',
 
 	'uploadFileSuccess'		=>	'上传文件成功',
 	'uploadFileError'		=>	'上传文件失败',
 
 	'openRarError'			=>	'打开压缩包失败',
->>>>>>> 497188959e6935e7bc49cfbd3761bfbb414e6238
  ];
