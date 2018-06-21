@@ -26,4 +26,9 @@ return [
 
 	'delArticleSuccess'		=>	'删除文章成功',
 	'delArticleError'		=>	'删除文章失败',
+
+	'uploadFileSuccess'		=>	'上传文件成功',
+	'uploadFileError'		=>	'上传文件失败',
+
+	'openRarError'			=>	'打开压缩包失败',
  ];

@@ -15,3 +15,7 @@ use think\Config;
 function tplLoad(){
 	is_login('tpl',true,false);
 }
+
+/**
+ *	读取模板的信息 读取version.php
+*/
