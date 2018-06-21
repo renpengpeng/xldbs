@@ -22,8 +22,8 @@ class Upload extends Base {
 	public function tpl_upload(){
 		// 获取模板的最后一个ID
 		$getLastId 			=	getTableLastID($this->tplInfoModel,'id');
-
-		dump($getLastId);die;
+		$nowID 				=	$getLastId+1;
+		
 		// 获取上传后的文件夹
 		$uploadPath 		=	Config::get('xld.all_upload_tpl');
 
@@ -32,7 +32,12 @@ class Upload extends Base {
 
 		if($file){
 			$info 		 	=	$file->validate(['ext'=>'zip,rar'])->move($uploadPath);
+		}else{
+			$info 			=	false;
+		}
 
+		if(!$info){
+			
 		}
 	}
 }
