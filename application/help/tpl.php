@@ -14,4 +14,11 @@
 |----- 	look 				(预览版本)
 |-----  version.php 		(存放版本信息等主题基本信息)
 |-----	screenshots.png 	(主题预览图)
-   
+  
+version.php文件内容如下：
+
+author 			=>	作者
+version 		=>	版本
+color 			=>	主题颜色  (二进制)
+description 	=>	描述
+
