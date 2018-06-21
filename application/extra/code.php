@@ -26,4 +26,13 @@ return [
 
 	'delArticleSuccess'		=>	'删除文章成功',
 	'delArticleError'		=>	'删除文章失败',
+     
+    "newArticleSuccess" 	=>	'添加页面成功',
+	'newArticleError'		=>	'添加页面失败',
+
+	'editArticleSuccess'	=>	'修改文章成功',
+	'editArticleError'		=>	'修改文章失败',
+
+	'delArticleSuccess'		=>	'删除文章成功',
+	'delArticleError'		=>	'删除文章失败',
  ];

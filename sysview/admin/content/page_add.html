@@ -1,16 +1,13 @@
 {include file="Tpl/header"}
-<admin-blockquote>添加文章</admin-blockquote>
-<form class="layui-form" action="{:url('admin/content/article_edit_oper')}" method="post" enctype="multipart/form-data">
-  {volist name="list" id="v"}
-  <input type="hidden" name="id">
+<admin-blockquote>添加页面</admin-blockquote>
+<form class="layui-form" action="{:url('admin/content/page_add_oper')}" method="post" enctype="multipart/form-data">
   <div class="layui-form-item">
-    <label class="layui-form-label">文章分类</label>
+    <label class="layui-form-label">页面分类</label>
     <div class="layui-input-block">
       <select name="cate" lay-filter="aihao">
         <option value="">请选择</option>
         {volist name="catelist" id="cate_list"}
-        {if condition="$v.cate eq $cate_list.title"}{/if}
-        <option value="{$cate_list.title}">{$list.cate}</option>
+        <option value="{$cate_list.title}">{$cate_list.title}</option>
         {/volist}
       </select>
     </div>
@@ -21,7 +18,6 @@
       <select name="web_id" lay-filter="aihao">
         <option value="">请选择</option>
         {volist name="weblist" id="web_list"}
-        {if condition="$v.cate eq $web_list.title"}{/if}
         <option value="{$web_list.title}">{$web_list.title}</option>
         {/volist}
       </select>
@@ -30,66 +26,61 @@
 <div class="layui-form-item">
     <label class="layui-form-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
     <div class="layui-input-block">
-      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="{$v.title}">
+      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="{$message.title}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">关&nbsp;键&nbsp;字</label>
     <div class="layui-input-block">
-      <input type="text" name="keywords" lay-verify="title" autocomplete="off" placeholder="请输入关键字" class="layui-input" value="{$v.keywords}">
+      <input type="text" name="keywords" lay-verify="title" autocomplete="off" placeholder="请输入关键字" class="layui-input" value="{$message.keywords}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
     <div class="layui-input-block">
-      <input type="text" name="alias" lay-verify="title" autocomplete="off" placeholder="请输入别名" class="layui-input" value="{$v.alias}">
-    </div>
-  </div><div class="layui-form-item">
-    <label class="layui-form-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签</label>
-    <div class="layui-input-block">
-      <input type="text" name="tags" lay-verify="title" autocomplete="off" placeholder="请输入标签" class="layui-input" value="{$v.tags}">
+      <input type="text" name="alias" lay-verify="title" autocomplete="off" placeholder="请输入别名" class="layui-input" value="{$message.alias}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">摘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要</label>
     <div class="layui-input-block">
-      <input type="text" name="description" lay-verify="title" autocomplete="off" placeholder="请输入摘要" class="layui-input" value="{$v.description}">
+      <input type="text" name="description" lay-verify="title" autocomplete="off" placeholder="请输入摘要" class="layui-input" value="{$message.description}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">用&nbsp;户&nbsp;名</label>
     <div class="layui-input-block">
-      <input type="text" name="userid" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input" value="{$v.userid}">
+      <input type="text" name="userid" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input" value="{$message.userid}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本</label>
     <div class="layui-input-block">
-      <input type="text" name="version" lay-verify="title" autocomplete="off" placeholder="请输入版本" class="layui-input" value="{$v.version}">
+      <input type="text" name="version" lay-verify="title" autocomplete="off" placeholder="请输入版本" class="layui-input" value="{$message.version}">
     </div>
   </div>
   <div class="layui-inline">
       <label class="layui-form-label">创建日期</label>
       <div class="layui-input-inline">
-        <input type="text" name="adddate" id="test1" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" value="{$v.adddate}">
+        <input type="text" name="adddate" id="test1" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" value="{$message.adddate}">
       </div>
     </div><br /><br />
   <div class="layui-form-item">
     <label class="layui-form-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
     <div class="layui-input-block">
-      <input type="file" name="titlepic" lay-verify="title" autocomplete="off"  value="{$v.titlepic}">
+      <input type="file" name="titlepic" lay-verify="title" autocomplete="off" value="{$message.titlepic}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">浏&nbsp;览&nbsp;量</label>
     <div class="layui-input-block">
-      <input type="text" name="view" lay-verify="title" autocomplete="off" placeholder="初始为零" class="layui-input" value="{$v.view}">
+      <input type="text" name="view" lay-verify="title" autocomplete="off" placeholder="初始为零" class="layui-input" value="{$message.view}">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
     <div class="layui-input-block">
-      <textarea type="text" lay-verify="content" name="content" class="layui-input" autocomplete="off" placeholder="请输入内容" style="height: 100px;">{$v.content}</textarea>
+      <textarea type="text" lay-verify="content" name="content" class="layui-input" autocomplete="off" placeholder="请输入内容" style="height: 100px;">{$message.content}</textarea>
     </div>
   </div>
   <div class="layui-form-item">
@@ -98,7 +89,6 @@
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
-  {/volist}
 </form>
        <script>
 //Demo
@@ -111,6 +101,8 @@ layui.use('form', function(){
     return false;
   });
 });
+
+
 layui.use('laydate', function(){
   var laydate = layui.laydate;
   

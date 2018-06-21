@@ -1,0 +1,81 @@
+{include file="Tpl/header"}
+<admin-blockquote>添加自定义页面</admin-blockquote>
+<form class="layui-form" action="{:url('admin/content/seniorPage_add_oper')}" method="post" enctype="multipart/form-data">
+  <div class="layui-form-item">
+    <label class="layui-form-label">站&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点</label>
+    <div class="layui-input-block">
+      <select name="web_id" lay-filter="aihao">
+        <option value="">请选择</option>
+        {volist name="weblist" id="web_list"}
+        <option value="{$web_list.title}">{$web_list.title}</option>
+        {/volist}
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+    <div class="layui-input-block">
+      <input type="text" name="alias" lay-verify="title" autocomplete="off" placeholder="请输入别名" class="layui-input" value="{$message.alias}">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">用&nbsp;户&nbsp;名</label>
+    <div class="layui-input-block">
+      <input type="text" name="userid" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input" value="{$message.userid}">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本</label>
+    <div class="layui-input-block">
+      <input type="text" name="version" lay-verify="title" autocomplete="off" placeholder="请输入版本" class="layui-input" value="{$message.version}">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">浏&nbsp;览&nbsp;量</label>
+    <div class="layui-input-block">
+      <input type="text" name="view" lay-verify="title" autocomplete="off" placeholder="初始为零" class="layui-input" value="{$message.view}">
+    </div>
+  </div>
+  <div class="layui-inline">
+      <label class="layui-form-label">创建日期</label>
+      <div class="layui-input-inline">
+        <input type="text" name="adddate" id="test1" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" value="{$message.adddate}">
+      </div>
+    </div><br /><br />
+  <div class="layui-form-item">
+    <label class="layui-form-label">页面内容</label>
+    <div class="layui-input-block">
+      <textarea type="text" lay-verify="content" name="html" class="layui-input" autocomplete="off" placeholder="请输入页面内容" style="height: 100px;">{$message.html}</textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+       <script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(form)', function(data){
+    layer.msg(JSON.stringify(data.submit));
+    return false;
+  });
+});
+
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#test1' //指定元素
+  });
+});
+</script>
+
+{include file="Tpl/footer"}
