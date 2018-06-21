@@ -32,3 +32,16 @@ function getNowActionTpl($enter='admin',$file=false){
 	
 	return $path;
 }
+
+/**
+ *	获取数据库的最后一个ID
+ *	@param table   resource类型 传入model
+ *	@param key 	   传入表的主键
+*/
+function getTableLastID($table,$key){
+	$find 	=	$table->order("{$key} desc")->limit(1)->find();
+
+	$id 	=	$find[$key];
+
+	return $id;
+}

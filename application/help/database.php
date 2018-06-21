@@ -70,5 +70,5 @@ id 	alias 		name 			addtime
 #	bs_area 						#城市表 
 areaid 			areaname 		parentid 		arrparentid 	 child 			arrchildid 	 listorder
 
-#	bs_keywords_rank
+#	bs_keywords_rank 				#
 id 	web_id 		keywords 		baidu_rank 		haosou_rank 	sougou_rank 	google_rank	  last_update_time		addtime 	
