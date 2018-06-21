@@ -69,19 +69,18 @@ class Content extends Base {
             $result     =   $this->articleModel->where('id',$id)->update($data);
         }
         if(!$result){
-                    return $this->success($this->code['newArticleSuccess']);
+            return $this->success($this->code['newArticleSuccess']);
         }else{
-                    return $this->error($this->code['editArticleError']);
+            return $this->error($this->code['editArticleError']);
         }
     }
     public function article_del(){
-        $data           =   input("post.");
-        $id             =   isset($data['id']) ? intval($data['id']) : false;
-        $result=$this->articleModel->where('id',$id)->delete();
+        $id             =   input("get.id");
+        $result         =   $this->articleModel->where('id',$id)->delete();
         if($result){
-                   return $this->success($this->code['delArticleSuccess']);
+            return $this->success($this->code['delArticleSuccess']);
         }else{
-                   return $this->success($this->code['delArticleError']);
+            return $this->error($this->code['delArticleError']);
         }
     }
 }

@@ -24,6 +24,6 @@ return [
 	'editArticleSuccess'	=>	'修改文章成功',
 	'editArticleError'		=>	'修改文章失败',
 
-	'delArticleSuccess'	=>	'删除文章成功',
-	'delArticleerror'	=>	'删除文章失败',
+	'delArticleSuccess'		=>	'删除文章成功',
+	'delArticleError'		=>	'删除文章失败',
  ];
