@@ -40,7 +40,7 @@ id 	web_id 		title 			keywords 		description 	titlepic 		alias 		content 	userid
 #	bs_senior_page 					#高级页面配置  &全部自定义页面html
 id 	web_id 		alias 			userid 			version 		view 			html 		adddate 	addtime 
 
-#	bs_adminuser 					# 管理员 与 站点后台用户表设计  如果is_agent为false  则不是代理  如果不是管理员也不是代理 则pagent生效
+#	bs_user 					# 管理员 与 站点后台用户表设计  如果is_agent为false  则不是代理  如果不是管理员也不是代理 则pagent生效
 id 	web_id 		username 		bbsname 		password 		password_b 		sex 		auth 		is_admin 		is_agent   agent_level		createid	 agent_province  	agent_city	 agent_county   	headpic 			address 		status 		unblock_time	phone 	email  login_num 	 
 
 #	bs_auth_admin 					#权限组 对应后台的controller  折率百分比

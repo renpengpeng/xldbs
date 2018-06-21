@@ -26,6 +26,7 @@ return [
 
 	'delArticleSuccess'		=>	'删除文章成功',
 	'delArticleError'		=>	'删除文章失败',
+<<<<<<< HEAD
      
     "newArticleSuccess" 	=>	'添加页面成功',
 	'newArticleError'		=>	'添加页面失败',
@@ -35,4 +36,11 @@ return [
 
 	'delArticleSuccess'		=>	'删除文章成功',
 	'delArticleError'		=>	'删除文章失败',
+=======
+
+	'uploadFileSuccess'		=>	'上传文件成功',
+	'uploadFileError'		=>	'上传文件失败',
+
+	'openRarError'			=>	'打开压缩包失败',
+>>>>>>> 497188959e6935e7bc49cfbd3761bfbb414e6238
  ];
