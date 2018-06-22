@@ -111,6 +111,16 @@ layui.use('laydate', function(){
     elem: '#test1' //指定元素
   });
 });
+
+  $.ajax({
+  url:"{:url('page_add_oper')}",
+  data:{id:id},
+  type:"POST",
+  datatype:'JSON',
+  success:function(data){
+      console.log(data);
+  },
+  });
 </script>
 
 {include file="Tpl/footer"}

@@ -49,5 +49,8 @@ return [
 	'uploadFileSuccess'		=>	'上传文件成功',
 	'uploadFileError'		=>	'上传文件失败',
 
+	"newPicSuccess" 		=>	'添加图片成功',
+	'newPicPageError'		=>	'添加图片失败',
+
 	'openRarError'			=>	'打开压缩包失败',
  ];

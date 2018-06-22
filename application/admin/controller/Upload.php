@@ -61,6 +61,24 @@ class Upload extends Base {
 			return $this->error($this->code['openRarError']);
 		}
 
+		
 
 	}
+	public function upload(){
+		//图片上传
+        $file                   =   request()->file('titlepic');
+        if($file){
+        $info                   =   $file->move(Config::get('xld.uploads_path'));
+        if($info){
+            $a                  =   $info->getSaveName();  
+            $imgp               =   str_replace("\\","/",$a);  
+            $imgpath            =   $imgp;  
+            $data['titlepic']   =   $imgpath;  
+  
+        }else{
+            echo $file->getError();
+        }
+                 }
+	}
+
 }
