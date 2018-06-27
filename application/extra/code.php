@@ -64,5 +64,8 @@ return [
 	'cateNameNotNull'		=>	'分类名字不能为空',
 
 	'getInfoSuccess'		=>	'获取信息成功',
-	'getInfoError'			=>	'获取信息失败'
+	'getInfoError'			=>	'获取信息失败',
+
+	'selectSuccess'			=>	'选择成功',
+	'selectError'			=>	'选择失败'
  ];
