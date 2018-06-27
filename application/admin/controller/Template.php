@@ -58,13 +58,7 @@ class Template extends Base {
 			$listData .=	"->where('tpl_cate',{$cate})";
 		}
 
-		$listData 	=	$listData->order("id {$sort}")->select();
-		if($listData){
-			foreach ($listData as $key => $value) {
-				$id 						=	$listData[$key]['id'];
-				$listData[$key]['thumb'] 	=	getTplThumbPath($id);
-			}
-		}
+		$listData 	=	$listData->order("id {$sort}")->select();		
 
 		$this->assign('listData',$listData);
 
@@ -87,19 +81,38 @@ class Template extends Base {
 			return $this->error($this->code['noID']);
 		}
 
+		if(request()->isPost()){
+			$data['tpl_port'] 	=	input('?tpl_port') ? input('tpl_port') : false;
+			$data['tpl_cate']	=	input('?tpl_cate') ? input('tpl_cate') : false;
+			$data['adddate']	=	date('Y-m-d H:i:s',@time());
+			$data['addtime']	=	@time();
+
+
+			if(!$data['tpl_port'] || !$data['tpl_cate']){
+				return $this->error($this->code['noData']);
+			}
+
+			$data 				=	safeArray($data);
+
+			$upPortCate 		=	$this->tplInfoModel->where('id',$id)->update($data);
+			if($upPortCate){
+				return $this->success($this->code['operSuccess']);
+			}else{
+				return $this->error($this->code['operError']);
+			}
+		}
+
 		// 获取所有主题分类
 		$tplCateList 	=	$this->tplCateModel->cache($this->cache_time)->order('id asc')->select();
-
-		// 获得产品  类型
-		$productType 	=	$this->productTypeModel->cache($this->cache_time)->order('id asc')->select();
 
 		// 获取展示端
 		$showPort 		=	$this->showPortTypeModel->cache($this->cache_time)->order('id asc')->select();
 
 
 		$this->assign('tplCateList',$tplCateList);
-		$this->assign('productType',$productType);
+		// $this->assign('productType',$productType);
 		$this->assign('showPort',$showPort);
+		$this->assign('id',$id);
 
 		return view(getNowActionTpl('admin'));
 	}
@@ -198,6 +211,10 @@ class Template extends Base {
 				$m 	=	$this->showPortTypeModel;
 			break;
 
+			case 'tpl':
+				$m 	=	$this->tplInfoModel;
+			break;
+
 			default:
 				return false;
 			break;
@@ -284,6 +301,24 @@ class Template extends Base {
 			return $this->error($this->code['operError']);
 		}else{
 			return $this->success($this->code['operSuccess']);
+		}
+	}
+
+	/**
+ 	 *	删除主题
+	*/
+	public function deltpl(){
+		$id 		=	input('?id') ? intval(input('id')) : false;
+
+		if(!$id){
+			return $this->error($this->code['noData']);
+		}
+
+		$result 	=	$this->tplInfoModel->where('id',$id)->delete();
+		if($result){
+			return $this->success($this->code['operSuccess']);
+		}else{
+			return $this->error($this->code['operError']);
 		}
 	}
 }

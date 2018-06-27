@@ -3,39 +3,35 @@
 <div class="layui-row">
 	<!-- 左边 -->
 	<div class="layui-col-md6">
-		<form class="layui-form" action="">
+		<form class="layui-form" action="" method="post">
+			<input type="hidden" name="id" value="{$id}">
 			<!-- 访问端类型 -->
 			<div class="layui-form-item">
 		    <label class="layui-form-label">展示端</label>
 		    <div class="layui-input-block">
-		      <input type="radio" name="tpl_port" value="0" title="默认" checked>
+		      <!-- <input type="radio" name="tpl_port" value="0" title="默认" checked> -->
 		      {volist name="showPort" id="showPort"}
-		      	<input type="radio" name="tpl_port" value="{$showPort.portname}" title="{$showPort.portname}">
+		      	<input type="radio" name="tpl_port" value="{$showPort.id}" title="{$showPort.portname}">
 		      {/volist}
 		    </div>
 		  </div>
-			<!-- 选择所属产品类型 -->
-			<div class="layui-form-item">
-			    <label class="layui-form-label">所属产品</label>
-			    <div class="layui-input-block">
-			      <select name="city" lay-verify="required">
-			          {volist name="tplCateList" id="tplCateList"}
-			          	<option value="{$tplCateList.id}">{$tplCateList.catename}</option>
-			          {/volist}
-			      </select>
-			    </div>
-		  	</div>
 			<!-- 选择分类 -->
 			<div class="layui-form-item">
 			    <label class="layui-form-label">模板分类</label>
 			    <div class="layui-input-block">
-			      <select name="city" lay-verify="required">
-			          {volist name="tplCateList" id="tplCateList"}
-			          	<option value="{$tplCateList.id}">{$tplCateList.catename}</option>
+			      <select name="tpl_cate" lay-verify="required" lay-search>
+			          {volist name="tplCateList" id="cate"}
+			          	<option value="{$cate.id}">{$cate.catename}</option>
 			          {/volist}
 			      </select>
 			    </div>
 		  	</div>
+		  	<!-- 按钮 -->
+		  	<div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			</div>
 		</form>
 	</div>
 	<!-- 右边 -->
@@ -47,6 +43,33 @@
 	layui.use('form', function(){
   		var form = layui.form;
   		form.render();
+
+  		//监听提交
+		form.on('submit(formDemo)', function(data){
+		  var fie 		=	data.field;
+		  var action 	=	data.form.action;
+		  var method 	=	data.form.method;
+
+		  $.ajax({
+		  	url:action,
+		  	type:method,
+		  	data:fie,
+		  	success:function(res){
+		  		alertMsg(res['code'],res['msg'],0);
+		  		if(res['code'] == 1){
+		  			setTimeout(function(){
+		  				window.location.href = "{:url('list')}";
+		  			},1000);
+		  		}
+		  	},
+		  	error:function(XMLHttpRequest, textStatus, errorThrown){
+	    		// 访问失败了 
+				alertMsg(XMLHttpRequest.status);
+	    	}
+		  });
+
+		  return false;
+		});
   	})
 </script>
 {include file="Tpl/footer"}
