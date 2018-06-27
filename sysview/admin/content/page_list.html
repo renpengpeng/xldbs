@@ -1,12 +1,10 @@
 {include file="Tpl/header"}
-<admin-blockquote>文章列表</admin-blockquote>
-<a href="{:url('content/article_add')}" class="layui-btn float-right" >添加文章</a>
+<admin-blockquote>页面列表</admin-blockquote>
+<a href="{:url('content/page_add')}" class="layui-btn float-right" >添加页面</a>
 <table class="layui-table">
 	<thead>
       <tr>
-        <th><input type="checkbox" value=""></th>
         <th>ID</th>
-        <th>站点</th>
         <th>标题</th>
         <th>关键词</th>
         <th>摘要</th>
@@ -17,11 +15,7 @@
     </thead>
     {volist name="list" id="v"}
     	<tr>
-            <td><input type="text" value="{$v.web_id}"></td>
     		<td>{$v.id}</td>
-            {volist name="webResult" id="webResult"}
-            <td>{$webResult.title}</td>
-            {/volist}
     		<td>{$v.title}</td>
     		<td>{$v.keywords}</td>
     		<td>{$v.description}</td>
@@ -29,11 +23,11 @@
     		<td>{$v.adddate}</td>
     		<td>
     			<div class="layui-btn-group">
-                    <a href="{:url('article_add')}?id={$v.id}" class="layui-btn layui-btn-sm" title="编辑">
+                    <a href="{:url('page_add')}?id={$v.id}" class="layui-btn layui-btn-sm" title="编辑">
 				  
 				    <i class="layui-icon">&#xe642;</i>
 				  </a>
-                  <a href="{:url('article_del')}?id={$v.id}" class="layui-btn layui-btn-sm" title="删除">
+                  <a href="{:url('page_del')}?id={$v.id}" class="layui-btn layui-btn-sm" title="删除">
 				    <i class="layui-icon">&#xe640;</i>
 				  </a>
 				  <button class="layui-btn layui-btn-sm" title="切换后台">

@@ -37,6 +37,9 @@ return [
     // 缓存的路径
     'cache_path'        =>  ROOT_PATH.'runtime'.DS,
 
+    //上传的路径
+    'uploads_path'      =>  ROOT_PATH . 'public' . DS . 'static/uploads',
+
 
     
     // 定义密码加密字符串

@@ -73,6 +73,7 @@ class Upload extends Base {
 			return returnLayuiType(false,$this->code['decompressionError'],null);
 		}
 
+<<<<<<< HEAD
 		// 关闭压缩包
 		$this->zip->close();
 
@@ -136,6 +137,26 @@ class Upload extends Base {
 			// 返回失败
 			return returnLayuiType(false,$this->code['uploadFileError'],null);
 		}		
+=======
+		
+>>>>>>> f637b0b166ad1564206b4742e91c34c15c47ea43
 
 	}
+	public function upload(){
+		//图片上传
+        $file                   =   request()->file('titlepic');
+        if($file){
+        $info                   =   $file->move(Config::get('xld.uploads_path'));
+        if($info){
+            $a                  =   $info->getSaveName();  
+            $imgp               =   str_replace("\\","/",$a);  
+            $imgpath            =   $imgp;  
+            $data['titlepic']   =   $imgpath;  
+  
+        }else{
+            echo $file->getError();
+        }
+                 }
+	}
+
 }
