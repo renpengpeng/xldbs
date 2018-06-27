@@ -32,7 +32,12 @@ class Upload extends Base {
 		// 获取上传后的文件夹
 		$uploadPath 			=	Config::get('xld.all_upload_tpl');
 		// 获取存放主题信息的文件名
-		$tolInfoName 			=	Config::get('xld.tpl_version_filename');
+		$tplfilename 			=	Config::get('xld.tpl_version_filename');
+		// 获取主题图片名
+		$thumbFilename 			=	Config::get('xld.tpl_png_filename');
+		// 缩略图路径
+		$thumbPath 				=	Config::get('xld.tpl_thumb_path');
+
 
 		// 接收 只接受rar zip 后缀
 		$file 					= 	request()->file('tplZIP');
@@ -73,7 +78,6 @@ class Upload extends Base {
 			return returnLayuiType(false,$this->code['decompressionError'],null);
 		}
 
-<<<<<<< HEAD
 		// 关闭压缩包
 		$this->zip->close();
 
@@ -102,8 +106,18 @@ class Upload extends Base {
 			return returnLayuiType(false,$this->code['themeNoSpec'],null);
 		}
 
+		// 图片路径
+		$thumbPathNow 			=	$nowID.DS.$thumbFilename;
+		// 生成随机字符串30
+		$randStr 				=	randStr('mixing',30);
+		$toThumb 				=	$thumbPath.$nowID.$randStr.'.jpg';
+		// 计算相对路径
+		$SQLthumb 				=	abPathToRePath($toThumb,'static',1);
+		// 开始拷贝
+		$copys 					=	copy($thumbPathNow,$toThumb);
+
 		// 开始读取主题的基本信息
-		$tplInfo 				=	include $nowID.DS.$tolInfoName;
+		$tplInfo 				=	include $nowID.DS.$tplfilename;
 
 		if(!$tplInfo){
 			// 删除文件夹
@@ -122,6 +136,8 @@ class Upload extends Base {
 		$tpls['color']				=	isset($tplInfo['color']) ? $tplInfo['color'] : '';
 		// 获得主题描述
 		$tpls['description']		=	isset($tplInfo['description']) ? $tplInfo['description'] : '';
+		// 缩略图路径
+		$tpls['thumb'] 				=	$SQLthumb;
 
 		// 过滤
 		$tpls 						=	safeArray($tpls);
@@ -137,26 +153,6 @@ class Upload extends Base {
 			// 返回失败
 			return returnLayuiType(false,$this->code['uploadFileError'],null);
 		}		
-=======
-		
->>>>>>> f637b0b166ad1564206b4742e91c34c15c47ea43
-
-	}
-	public function upload(){
-		//图片上传
-        $file                   =   request()->file('titlepic');
-        if($file){
-        $info                   =   $file->move(Config::get('xld.uploads_path'));
-        if($info){
-            $a                  =   $info->getSaveName();  
-            $imgp               =   str_replace("\\","/",$a);  
-            $imgpath            =   $imgp;  
-            $data['titlepic']   =   $imgpath;  
-  
-        }else{
-            echo $file->getError();
-        }
-                 }
 	}
 
 }
