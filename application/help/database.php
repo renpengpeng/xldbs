@@ -23,7 +23,7 @@ id 	type 		reg 			adddate 		addtime
 id  web_id  	user_id 		type 			html  			adddate  		addtime  	last_modify
 
 #	bs_tpl_info 					#所有主题的储存  tpl_type 与 system_product_type 对应
-id 	tpl_port 	tpl_type  	tpl_cate 		tpl_name 		tpl_filename	color 			author 		description 	 adddate 		addtime
+id 	tpl_port 	tpl_type  	tpl_cate 		tpl_name 		tpl_filename	 	thumb 		color 			author 		description 	 adddate 		addtime
 
 #	bs_tpl_cate 					#主题行业分类
 id 	catename 	adddate 		addtime
