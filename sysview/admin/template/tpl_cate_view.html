@@ -1,0 +1,144 @@
+{include file="Tpl/header"}
+<admin-blockquote>
+	模板分类
+	<button class="layui-btn layui-sm-btn float-right" style="margin-right: 15px;" onclick="window.location.href = '{:url("tpl_port_view")}'">
+	  <i class="layui-icon">&#xe66b;</i> 切换到模板展示端管理
+	</button>
+</admin-blockquote>
+<div class="layui-row layui-col-space30">
+	<div class="layui-col-md8">
+		<div class="sm-title-left">分类列表</div>
+		<table class="layui-table">
+			<thead>
+			    <tr>
+			      <th width="50">ID</th>
+			      <th>分类名称</th>
+			      <th width="200">添加时间</th>
+			      <th width="100">操作</th>
+			    </tr>
+		    </thead>
+		    <tbody>
+		    	{volist name="allCate" id="cate"}
+		    	<tr>
+		    		<td>{$cate.id}</td>
+		    		<td>{$cate.catename}</td>
+		    		<td>{$cate.adddate}</td>
+		    		<td>
+		    			<div class="layui-btn-group">
+						  <button class="layui-btn layui-btn-sm" onclick="editCate({$cate.id});">
+						    <i class="layui-icon" title="编辑">&#xe642;</i>
+						  </button>
+						  <button class="layui-btn layui-btn-sm layui-btn-danger" onclick="delCate({$cate.id});">
+						    <i class="layui-icon " title="删除">&#xe640;</i>
+						  </button>
+						</div>
+		    		</td>
+		    	</tr>
+		    	{/volist}
+		    </tbody>
+		</table>
+	</div>
+	<!-- 右边的内容 -->
+	<div class="layui-col-md4">
+		<div class="sm-title-right">添加/编辑</div>
+		<form class="layui-form layui-form-pane" action="{:url('tpl_cate_oper')}" method="get">
+			<input type="hidden" name="id" value="{$message.id}">
+			<!-- 分类名称 -->
+			<div class="layui-form-item">
+			    <label class="layui-form-label">分类名称</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="catename" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="{$message.catename}">
+			    </div>
+			</div>
+			<!-- 提交按钮 -->
+			<div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+		    </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	layui.use('form', function(){
+	  var form = layui.form;
+	  form.render();
+	  
+	  //监听提交
+	  form.on('submit(formDemo)', function(data){
+	    var fie 		=	data.field;
+	    var action 		=	data.form.action;
+	    var method 		=	data.form.method;
+	    var operType 	=	"{$operType}";
+
+	    fie.type 		=	operType;
+
+	    $.ajax({
+	    	url:action,
+	    	data:fie,
+	    	type:method,
+	    	success:function(data){
+	    		// 提示
+	    		alertMsg(data['code'],data['msg'],data['code']);
+	    	},
+	    	error:function(XMLHttpRequest, textStatus, errorThrown){
+	    		// 访问失败了 
+				alertMsg(XMLHttpRequest.status);
+	    	}
+	    });
+
+	    return false;
+	  });
+	});
+
+	// 编辑分类
+	function editCate(id){
+		// 生成url  * 此url获取分类的信息
+		var buildUrl 				=	"{:url('getOneMessage')}";
+
+		$.ajax({
+			url:buildUrl,
+			data:{id:id,type:'cate'},
+			success:function(res){
+				// 成功
+				if(res['code'] == 1){
+					var datamsg 	=	res['msg'];
+					// 得到 分类名字  id并赋值
+					var catename 	=	datamsg['catename'];
+					// 得到id
+					var cateid 		=	datamsg['id'];
+
+					$("input[name='catename']").val(catename);
+					$("input[name='id']").val(cateid);
+
+					alertMsg(1,'请在右边区域编辑',0);
+				}else{
+					alertMsg(res['code'],res['msg'],res['code']);
+				}
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				// 访问失败了 
+				alertMsg(XMLHttpRequest.status);
+			}
+		});
+	}
+
+	// 删除分类
+	function delCate(id){
+		var buildUrl 	=	"{:url('tpl_cate_oper')}";
+		$.ajax({
+			url:buildUrl,
+			type:'get',
+			data:{type:'del',id:id},
+			success:function(res){
+				alertMsg(res['code'],res['msg'],res['code']);
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				// 访问失败了 
+				alertMsg(XMLHttpRequest.status);
+			}
+		});
+	}
+</script>
+{include file="Tpl/footer"}
+

@@ -31,4 +31,16 @@ return [
 	'uploadFileError'		=>	'上传文件失败',
 
 	'openRarError'			=>	'打开压缩包失败',
+	'decompressionError'	=>	'解压压缩包失败',
+
+	'themeNoSpec' 			=>	'主题不符合规范',
+	'readTplInfoError'		=>	'读取主题信息失败',
+
+	'noID'					=>	'没有ID',
+	'noData'				=>	'参数缺少',
+	
+	'cateNameNotNull'		=>	'分类名字不能为空',
+
+	'getInfoSuccess'		=>	'获取信息成功',
+	'getInfoError'			=>	'获取信息失败'
  ];

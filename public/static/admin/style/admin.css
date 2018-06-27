@@ -8,6 +8,16 @@ admin-blockquote {
 	font-size: 20px;
 	margin-bottom: 10px;
 }
+admin-vice-blockquote {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	border-left: 5px solid #ddd;
+	padding-left: 15px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
 .cache-list li {
 	min-height: 50px;
 	line-height: 25px;
@@ -15,4 +25,18 @@ admin-blockquote {
 .form-box {
 	width: 100%;
 	text-align: center;
+}
+.sm-title-left {
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	border-left: 5px solid #FF5722;
+	padding-left: 10px;
+}
+.sm-title-right {
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	border-left: 5px solid #1E9FFF;
+	padding-left: 10px;
 }

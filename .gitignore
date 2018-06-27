@@ -1,8 +1,3 @@
-runtime
-runtime/temp
-runtime/log
-runtime/temp/12142f9d6a200c0a7a7fbe1298faccb0.php
-runtime/temp/6572e0a6e47abeca91fce46702e37300.php
-runtime/temp/71f020f6ee56c49aa830c419726c259e.php
-runtime/temp/a6d00bdbdeccd8f301f9607f305afa68.php
-runtime/log/201806/15.log
+/runtime
+/template
+/runtime/temp

@@ -1,27 +1,55 @@
 {include file="Tpl/header"}
 <admin-blockquote>模板上传</admin-blockquote>
+<style type="text/css">
+  .ups {
+    height: 300px;
+    line-height: 300px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    /*border-bottom: 1px solid #ddd;*/
+    border:3px dotted #ddd;
+    border-radius: 5px;
+  }
+</style>
 <form action="" method="post"  enctype="multipart/form-data">
 
-<button type="button" class="layui-btn" id="test1">
-  <i class="layui-icon">&#xe67c;</i>上传模板
-</button>
-<input type="submit" value="上传" class="layui-btn">
+  <div class="ups" id="test1">点击选择文件</div>
+
 </form>
 {include file="Tpl/footer"}
 <script>
 layui.use('upload', function(){
-  var upload = layui.upload;
+  showLoading();
 
+  var upload = layui.upload;
   //执行实例
   var uploadInst = upload.render({
-    elem: '#test1' //绑定元素
-    ,url: '/upload/' //上传接口
+    elem: '#test1'
+    ,url: "{:url('admin/upload/tpl_upload')}"
+    ,accept : 'file'
+    ,exts : 'zip'
+    ,field :'tplZIP'
     ,done: function(res){
-      //上传完毕回调
+      if(res['code'] == 0){
+        var id  = res['data'];
+        // 上传成功 开始显示选择分类
+        alertMsg(1,'上传成功 即将选择分类',0);
+
+        setTimeout(function(){
+           var tjUrl  = "{:url('add_select_cate')}" + '?id=' + id;
+           window.location.href   =   tjUrl;
+        },1000);
+      }else{
+        // 上传成功 开始显示选择分类
+        alertMsg(0,'上传失败！',0);
+      }
     }
     ,error: function(){
       //请求异常回调
     }
   });
+
+  hideLoading();
 });
 </script>

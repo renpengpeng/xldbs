@@ -5,15 +5,38 @@
 	}
 </style>
 <admin-blockquote>添加站点</admin-blockquote>
-<form action="" method="post" class="layui-form layui-form-pane">
+<form action="{:url('admin/web/newweb_out')}" method="post" class="layui-form layui-form-pane">
+	<!-- 预计域名 -->
+	<div class="layui-form-item">
+    	<label class="layui-form-label">预计域名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="exp_domain" required lay-verify="required" placeholder="{$defaultDomain}" value="{$defaultDomain}" autocomplete="off" class="layui-input" readonly="">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux"></div>
+  </div>
+
+	<!-- 选择产品类型 -->
+	<div class="layui-form-item">
+    	<label class="layui-form-label">产品类别</label>
+	    <div class="layui-input-inline">
+	      <select name="productType" lay-verify="required">
+	         {volist name="productType" id="productType"}
+	         	<option>{$productType.name}</option>
+	         {/volist}
+	      </select>
+	    </div>
+	    <div class="layui-form-mid layui-word-aux"></div>
+  </div>
+
 	<!-- 域名 -->
 	<div class="layui-form-item">
 	    <label class="layui-form-label">域名</label>
 	    <div class="layui-input-inline">
-	      <input type="text" name="domain" required lay-verify="required" placeholder="站点标题" autocomplete="off" class="layui-input">
+	      <input type="text" name="domain" required lay-verify="required" placeholder="站点域名 英文逗号分隔" autocomplete="off" class="layui-input">
 	    </div>
 	    <div class="layui-form-mid layui-word-aux">*必填 不要加http[s]://</div>
   	</div>
+
 	<!-- 标题 -->
 	<div class="layui-form-item">
 	    <label class="layui-form-label">标题</label>
@@ -22,6 +45,7 @@
 	    </div>
 	    <div class="layui-form-mid layui-word-aux">*必填 规范输入标题</div>
   	</div>
+
   	<!-- 关键词 -->
   	<div class="layui-form-item">
 	    <label class="layui-form-label">关键词</label>
@@ -30,6 +54,7 @@
 	    </div>
 	    <div class="layui-form-mid layui-word-aux">*必填 使用英文逗号分隔</div>
   	</div>
+
   	<!-- 描述 -->
   	<div class="layui-form-item layui-form-text">
 	    <label class="layui-form-label">描述</label>
@@ -37,13 +62,112 @@
 	      <textarea name="description" placeholder="站点描述" class="layui-textarea"></textarea>
 	    </div>
   	</div>
+
+  	<!-- icp -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">ICP</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="icp" required lay-verify="required" placeholder="ICP" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">ICP </div>
+  	</div>
+
   	<!-- 选择模板 -->
   	<div class="layui-form-item">
 	    <label class="layui-form-label">模板</label>
 	    <div class="layui-input-inline">
-	      <input type="text" name="tpl_name" required lay-verify="required" placeholder="点击选择模板" autocomplete="off" class="layui-input" readonly="" style="cursor: pointer;">
+	      <input type="text" name="www_tpl" required lay-verify="required" placeholder="输入模板编号" autocomplete="off" class="layui-input">
 	    </div>
-	    <div class="layui-form-mid layui-word-aux">*选择模板(电脑)</div>
+	    <div class="layui-form-mid layui-word-aux cursor-pointer" onclick="turnOnTpl();">点击选择模板</div>
   	</div>
+  	
+  	<!-- 手机站点分隔 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label font-bold">手机站点</label>
+  	</div>
+
+  	<!-- 手机域名 -->
+	<div class="layui-form-item">
+	    <label class="layui-form-label">手机域名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="mobile_domain" required lay-verify="required" placeholder="手机域名 英文逗号分隔" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">*必填 不要加http[s]://</div>
+  	</div>
+
+  	<!-- 选择模板 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">手机模板</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="mobile_tpl" required lay-verify="required" placeholder="输入模板编号" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux cursor-pointer" onclick="turnOnTpl();">点击选择模板</div>
+  	</div>
+
+  	<!-- 手机站点分隔 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label font-bold">账号密码</label>
+  	</div>
+
+  	<!-- 管理员配置 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">管理员账号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="admin_acccount" required lay-verify="required" placeholder="管理员账号" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">管理员账号</div>
+  	</div>
+
+  	<!-- 管理员密码 -->
+  	<div class="layui-form-item">
+	    <label class="layui-form-label">管理员密码</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="admin_password" required lay-verify="required" placeholder="管理员密码" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid layui-word-aux">管理员密码</div>
+  	</div>
+
+  	<div class="layui-form-item">
+	    <div class="layui-input-block">
+	      	<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+	      	<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+	    </div>
+    </div>
+
 </form>
+<script type="text/javascript">
+	layui.use('form', function(){
+  		var form = layui.form;
+  		form.render();
+
+  	//监听提交
+	 form.on('submit(formDemo)', function(data){
+	    var field 	=	data.field;
+	    var action 	=	data.form.action;
+	    var method 	=	data.form.method;
+
+	    $.ajax({
+	    	url:action,
+	    	type:method,
+	    	data:field,
+	    	success:function(res){
+	    		alertMsg(res['code'],res['msg'],res['code']);
+	    	},
+	    	error:function(XMLHttpRequest, textStatus, errorThrown){
+	    		alertMsg(0,errorThrown,0);
+	    	}
+	    });
+
+	    return false;
+	 });
+    })
+
+	/*
+		*	打开模板选择
+	*/
+    function turnOnTpl(){
+    	var href 	=	"{:url('template/index/index')}";
+    	popFullPage(href);
+    }
+</script>
 {include file="Tpl/footer"}

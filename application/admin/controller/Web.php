@@ -7,10 +7,15 @@ use think\Config;
 
 class Web extends Base {
 	private $setting;
+	private $code;
+	private $productTypeModel;
 
 	public function _initialize(){
 		adminLoad();
-		$this->setting 	=	getConfig();
+
+		$this->setting 				=	getConfig();
+		$this->code 				=	loadCode();
+		$this->productTypeModel 	=	Model('SystemProductType');
 	}
 
 	/**
@@ -23,16 +28,24 @@ class Web extends Base {
 	/**
 	 *	添加新站点(视图) 
 	*/
-	public function newWeb(){
-		// dump(getNowActionTpl());
+	public function newweb(){
+		// 获取产品类型
+		$productType 	=	$this->productTypeModel->all();
+
+		// 预计域名
+		$defaultDomain 	=	createDefaultDomain();
+
+
+		$this->assign('productType',$productType);
+		$this->assign('defaultDomain',$defaultDomain);
 		return view(getNowActionTpl());
 	}
 
 	/**
-	 *	添加新站点(数据处理)  只接受POST
+	 *	添加新站点(数据处理)  数据过多只接受POST
 	 *	
 	*/
-	public function newWeb_out(){
+	public function newweb_out(){
 
 	}
 
@@ -50,10 +63,10 @@ class Web extends Base {
 			
 			foreach ($result as $key => $value) {
 				// 获取域名
-				$result[$key]['domain'] 	=	Model('webDomain')::getWebDomain($result[$key]['id']);
+				$result[$key]['domain'] 			=	Model('webDomain')::getWebDomain($result[$key]['id']);
 
 				// 获取管理员
-				$getuserInfo 				=	Model('User')->get($result[$key]['userid']);
+				$getuserInfo 						=	Model('User')->get($result[$key]['userid']);
 				if(!$getuserInfo){
 					$result[$key]['adminusername'] 	=	'获取失败';
 					$result[$key]['adminpassword'] 	=	'获取失败';
@@ -63,7 +76,7 @@ class Web extends Base {
 				}
 
 				// 转化status为数据
-				$status 					=	$result[$key]['status'];
+				$status 							=	$result[$key]['status'];
 				if($status){
 					$result[$key]['status_b'] 		=	'正常';
 				}else{

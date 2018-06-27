@@ -14,7 +14,9 @@
   <script type="text/javascript" src="/static/jquery/jquery.js"></script>
   <script type="text/javascript" src="/static/jquery/jquery.cookie.js"></script>
   <script type="text/javascript" src="/static/layui/layui.js"></script>
+  <script type="text/javascript" src="/static/layer/layer.js"></script>
   <script type="text/javascript" src="/static/admin/style/admin.js"></script>
+  <script type="text/javascript" src="/static/common/js/common.js"></script>
   <script type="text/javascript" src="/static/ecart/echarts.common.min.js"></script>
   <!-- vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -227,7 +229,7 @@
           </a>
           <dl class="layui-nav-child">
             <dd>
-              <a href="javascript:;">
+              <a href="{:url('admin/template/add')}">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;添加模板
               </a>
             </dd>
@@ -238,10 +240,17 @@
             </dd>
 
             <dd>
-              <a href="javascript:;">
+              <a href="{:url('admin/template/tpl_cate_view')}">
                 <i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;模板分类
               </a>
             </dd>
+
+            <dd>
+              <a href="{:url('admin/template/tpl_port_view')}">
+                <i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;模板访问端
+              </a>
+            </dd>
+
           </dl>
         </li>
         <!-- 系统 -->

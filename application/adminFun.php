@@ -81,9 +81,10 @@ function is_login($type='admin',$refresh=false,$hasLoginRefresh=false){
 
 /**
  *	安全的数组
- *	@var arr 	传入的数组
+ *	@var arr 		传入的数组
+ *	@var address 	是否去掉键带地址符的数组
 */
-function safeArray($arr){
+function safeArray($arr,$address=false){
 	if(!is_array($arr) || !$arr){
 		return false;
 	}
@@ -97,6 +98,12 @@ function safeArray($arr){
 
 		if(strlen($value) <= 0){
 			unset($arr[$key]);
+		}
+
+		if($address){
+			if(strpos($key,'/') !== FALSE){
+				unset($arr[$key]);
+			}
 		}
 	}
 	
@@ -404,7 +411,10 @@ function getSpaceCity($type='province',$partent=null){
 */
 function getDirSize($dir){
     $size  	= 	0;
-    $op  	= 	opendir($dir);
+    $op  	= 	@opendir($dir);
+    if(!$op){
+    	return 0;
+    }
     $re 	=	scandir($dir);
     foreach ($re as $key => $value) {
     	if($value != '.' && $value != '..'){
@@ -442,21 +452,26 @@ function getfilecounts($dir){
 /**
  *	删除某个文件夹
  *	@param path
+ *	@param delDir 	是否删除自身文件夹
 */
-function delDir($path) {
-	if(is_dir($path)){
-	   $p = scandir($path);
-	   foreach($p as $val){
-	    if($val !="." && $val !=".."){
-	     if(is_dir($path.$val)){
-	        deldir($path.$val.'/');
-	        @rmdir($path.$val.'/');
-	     }else{
-	        unlink($path.$val);
-	     }
-	    }
-	}
-  }
+function delDir($path,$delDir=false) {
+ if (!$handle = @opendir($path)) {
+        return false;
+    }
+    while (false !== ($file = readdir($handle))) {
+        if ($file !== "." && $file !== "..") {       //排除当前目录与父级目录
+            $file = $path . '/' . $file;
+            if (is_dir($file)) {
+                delDir($file);
+            } else {
+                @unlink($file);
+            }
+        }
+
+    }
+    if($delDir){
+    	@rmdir($path);
+    }
 }
 
 /**
@@ -557,6 +572,7 @@ function sizeConversion($size=1024,$sizeType='bytes',$getType='bit'){
 		break;
 	}
 }
+
 /**
  * kb，mb，gb自动转换大小
  * @param size 	传入的大小
@@ -566,3 +582,26 @@ function automaticSize($size) {
 	for ($i = 0; $size >= 1024 && $i < 4; $i++) $size /= 1024; 
 	return round($size, 2).$units[$i]; 
 } 
+
+/**
+ *	生成默认域名
+*/
+function createDefaultDomain(){
+	$setting 	=	getConfig();
+	// 获得网站域名
+	$domain 	=	'.'.$setting['web_url'];
+
+	$default 	=	randStr('mixing',10,'dns',$domain,'-');
+
+	return $default;
+}
+
+/**
+ *	生成密码
+ *	@param $plaintext 	明文密码
+*/
+function createPassword($plaintext){
+	$md5Str 	=	Config::get('xld.password_str');
+
+	return md5($plaintext.$md5Str);
+}

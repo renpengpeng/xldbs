@@ -5,13 +5,13 @@
 */
 
 #	bs_config 						#站点核心设置  &站点开关 	&创建站点开关	& 上传目录名	&上传最大大小
-id 	web_on 		new_web_on  	web_url 		admin_domain    tpl_domain    tpl_show_domain	  	upload_path 	upload_size 	logo_path
+id 	web_on 		new_web_on  	web_url 		admin_domain    tpl_domain  	  	upload_path 	upload_size 	logo_path		cache_time		bind_domain_maxnum
 
 #	bs_web_info 					#站点的基本信息  userid 	->	管理者ID   status ->	状态  0暂停  1正常     web_type 与 system_product_type 对应  
 id 	web_type    title 		keywords 		description 	logo_file 		icp 	   userid 	  	status  	stop_reason		adddate 	addtime	   begintime  opentime  endtime  
 
-# 	bs_web_domain 					#域名绑定储存  type 域名类型 可选 give ->  自带赠送  ordi  -> 	默认绑定/新增绑定  mobile ->	手机
-id 	type 	web_id  	domain   		tpl_name 		module 	 		adddate   		  addtime
+# 	bs_web_domain 					#域名绑定储存  type 域名类型 可选 give ->  自带赠送  ordi  -> 	新增绑定  mobile ->	手机
+id 	type 	web_id  	domain   		tpl_id 		module 	 		adddate   		  addtime
 
 #	bs_index_tpl 					#站点设置   &首页模板  
 id 	web_id 		index_tpl 		last_modify 	last_modify_date	version
@@ -23,10 +23,13 @@ id 	type 		reg 			adddate 		addtime
 id  web_id  	user_id 		type 			html  			adddate  		addtime  	last_modify
 
 #	bs_tpl_info 					#所有主题的储存  tpl_type 与 system_product_type 对应
-id 	tpl_type  	tpl_cate 		tpl_name 		tpl_filename	color 			author 		description 	 adddate 		addtime
+id 	tpl_port 	tpl_type  	tpl_cate 		tpl_name 		tpl_filename	color 			author 		description 	 adddate 		addtime
 
 #	bs_tpl_cate 					#主题行业分类
 id 	catename 	adddate 		addtime
+
+#	bs_tpl_show_port				#主题展示类型
+id 	alias 		portname		adddate			addtime
 
 #	bs_art_cate						#文章分类
 id 	web_id 		title 			keywords 		description 	titlepic 		alias 		pid 		level 		list_num 	 	adddate 	 	addtime 
@@ -67,7 +70,7 @@ id 	web_id 		domain 			url 			agent 			ip 				spider 		adddate 	addtime
 #	bs_system_product				#系统的产品		
 // id 	title 		keywords 		description 	content 		money 			unit		
 
-#	bs_sysmtem_product_type 		#系统产品类型 && 站点类型
+#	bs_sysmtem_product_type 		#系统产品类型 && 站点类型   ->基础  www -> 企业站点  包括 (电脑/手机)
 id 	alias 		name 			addtime			
 
 #	bs_area 						#城市表 

@@ -54,6 +54,8 @@
 	  
 	  //监听提交
 	  form.on('submit(formDemo)', function(data){
+	  	showLoading();
+
 	    var fie 		= 	data.field;
 	    var action 		=	data.form.action;
 	    var method 		=	data.form.method;
@@ -65,9 +67,13 @@
 	    	data:{type:clearType},
 	    	success:function(res){
 	    		alertMsg(res['code'],res['msg'],res['code']);
+	    		hideLoading();
+	    	},
+	    	error:function(XMLHttpRequest, textStatus, errorThrown){
+	    		alertMsg(0,errorThrown,0);
+	    		hideLoading();
 	    	}
 	    });
-
 	    
 	    return false;
 	  });

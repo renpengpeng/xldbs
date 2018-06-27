@@ -9,3 +9,22 @@
 .font-bolder {font-weight: bolder;}
 
 .font-color-red {color:#FF5722;}
+
+/*  定义鼠标样式  */
+.cursor-auto {cursor: auto;}
+.cursor-pointer {cursor: pointer;}
+.cursor-default {cursor: default;}
+.cursor-crosshair {cursor: crosshair;}
+.cursor-move {cursor: move;}
+.cursor-e-resize {cursor: e-resize;}
+.cursor-ne-resize {cursor: ne-resize;}
+.cursor-nw-resize {cursor: nw-resize;}
+.cursor-n-resize {cursor: n-resize;}
+.cursor-se-resize {cursor: se-resize;}
+.cursor-sw-resize {cursor: sw-resize;}
+.cursor-s-resize {cursor: s-resize;}
+.cursor-w-resize {cursor: w-resize;}
+.cursor-text {cursor: text;}
+.cursor-wait {cursor: wait;}
+.cursor-help {cursor: help;}
+

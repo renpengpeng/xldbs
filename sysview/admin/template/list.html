@@ -8,23 +8,14 @@
 <button class="layui-btn layui-btn-sm layui-btn-danger float-right" style="margin-right:15px;" onclick="window.location.href = '{:url("admin/template/add")}'">上传模板</button>
 </admin-blockquote>
 
-<!-- <table>
-<div class="zong" id="container">
- <ul>
-       <li>
-         <div class="main_box user_style4" data-hipop="two-horizontal">
-         <img src="/static/admin/img/1.jpg">
-       <a href="#" class="popup"></a><a href="#" class="popup2"></a>
-         </div>
-
-       </li>
-      
-   <div class="clear"></div>
- </ul>
- 
- <div class="fenye">
- </div>
+<div class="layui-row">
+	{volist name="listData" id="listData"}
+	<div class="layui-col-md3">
+		<div class="tpl-list-block">
+			<!-- 图片 -->
+			<img src="{$listData.thumb}" />
+		</div>
+	</div>
+	{/volist}
 </div>
-   
-</table> -->
 {include file="Tpl/footer"}

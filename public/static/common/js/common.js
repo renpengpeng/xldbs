@@ -18,3 +18,42 @@ function alertMsg(code,msg,refresh = false,delay=1000){
 		},delay)
 	}
 }
+
+
+/*
+	*	显示loading框
+	*	style 		->	风格 有 ：0,1,2
+*/
+function showLoading(style=0){
+	if(!style){
+		layer.load();
+	}else{
+		layer.load(style);
+	}
+}
+
+/*
+	*	隐藏loading框
+*/
+function hideLoading(){
+	layer.closeAll('loading');
+}
+
+
+/*
+	*	弹出全屏的网页
+	*	href 		->	链接地址 必须http[s]://
+*/
+function popFullPage(href){
+	if(href.length < 7){
+		alertMsg(0,'网址不规范',0);
+	}
+
+	var index = layer.open({
+	  type: 2,
+	  content: href,
+	  area: ['100%', '100%'],
+	  maxmin: true
+	});
+	layer.full(index);
+}
