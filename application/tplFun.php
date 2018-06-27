@@ -145,3 +145,30 @@ function getTplThumbPath($id){
 
 	return $thumbPath;
 }
+
+/**
+ *	把绝对路径转化为相对路径
+ *	@param 	path 	传入绝对路径
+ *	@param 	str 	定位的字符串 
+ *	@param  len 	定位到字符串的前几位
+ *	@return string
+*/
+function abPathToRePath($path,$str,$len){
+	// 如果 匹配到 '\'  替换为 '/'
+	if(preg_match("/\\\/",$path)){
+		$path 	=	preg_replace("/\\\/",'/',$path);
+	}
+
+	// 开始定位
+	$sublen 	=	strpos($path, $str);
+	if(!$sublen){
+		return false;
+	}
+
+	$endlen 	=	strlen($path);
+
+	// 开始截取
+	$path 		=	substr($path,$sublen-$len,$endlen);
+
+	return $path;
+}
